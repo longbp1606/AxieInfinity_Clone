@@ -1,8 +1,11 @@
 import React from 'react'
+import { HomeWrapper } from './Home.styled';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <HomeWrapper>
+      Home
+    </HomeWrapper>
   )
 }
 

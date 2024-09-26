@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        font-family: 'Inter', 'SVN-Poppins', Arial, Helvetica, sans-serif;
+        font-family: "Roboto Slab", serif;
         font-size: 1.6rem;
         line-height: 1.5;
     }

@@ -30,7 +30,7 @@ export const NavbarWrapper = styled.div`
             background: rgba(20, 20, 20, 0.5);
             font-family: Rowdies, serif;
             font-weight: 500;           
-            font-size: 1.5em;
+            font-size: 1.4em;
             text-transform: uppercase;
             color: ${theme.colors.textNavigation};
             border-radius: 12px;
@@ -66,8 +66,9 @@ export const NavbarList = styled.div`
     & a {
         font-weight: 700;
         font-size: 2rem;
-        color: rgba(255,255,255,0.6);
+        color: ${theme.colors.textLore};
         transition: all linear 0.25s;
+        padding: 10px;
 
         &:hover {
             color: rgb(255,255,255);
@@ -117,7 +118,7 @@ export const DropdownContainer = styled.div`
     border-radius: 0px 0px 16px 16px;
     z-index: 2;
     top: 85%;
-    left: 54%;
+    left: 63%;
     padding: 16px 24px;
     gap: 8px;
 

@@ -1,11 +1,14 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import * as Styled from './Header.styled';
 import { AppBar, Button } from '@mui/material';
 import Logo from '../../assets/logo/axie-infinity-logo.png'
 import { MoreButtonData, NavbarData } from './Header.data';
 import ArrowDownIcon from '../../assets/icon-component/arrow-down.svg';
+import { theme } from '../../themes';
 
 const Header = () => {
+  const locationPath = useLocation().pathname;
+  
   return (
     <AppBar
       component='header'
@@ -23,7 +26,14 @@ const Header = () => {
 
           <Styled.NavbarList>
             {NavbarData.map((data) => (
-              <Link to={data.to} key={data.key} target='_blank'>
+              <Link 
+                to={data.to} 
+                key={data.key} 
+                target={data.to.includes('http') ? '_blank' : ''}
+                style={{
+                  color: data.to === locationPath ? 'white' : `${theme.colors.textLore}`
+                }}
+              >
                 {data.label}
               </Link>
             ))}

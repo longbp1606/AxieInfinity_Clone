@@ -6,6 +6,7 @@ export const theme = {
         footer: 'rgb(20, 20, 20)',
         textPrimary: 'rgb(58, 30, 16)',
         textForWoodBackground: 'rgb(223, 163, 99)',
+        textGalaxy: 'rgb(120, 185, 251)',
         textLore: 'rgb(240, 220, 192)',
         textNavigation: 'rgb(240, 220, 192)',
         navDropdown: 'rgb(199, 100, 61)',

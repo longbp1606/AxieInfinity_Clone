@@ -1,11 +1,11 @@
 import React from 'react'
-import { HomeWrapper } from './Home.styled';
+import EmbraceInfinity from './EmbraceInfinity/EmbraceInfinity';
 
 const Home = () => {
   return (
-    <HomeWrapper>
-      
-    </HomeWrapper>
+    <>
+      <EmbraceInfinity/>
+    </>
   )
 }
 

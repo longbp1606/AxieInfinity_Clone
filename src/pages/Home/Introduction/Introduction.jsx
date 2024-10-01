@@ -238,6 +238,7 @@ const StyledCard1 = styled.div`
   margin-left: -100px;
   transform: translateY(${(props) => props.scrollY * -0.5}px);
   height:60vh;
+  margin-top:-10px;
 `;
 const Introduction = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -296,7 +297,7 @@ const Introduction = () => {
                 <OlekImage/>
             </StyledOlek>
             </StyledNote3>
-        </>
+        </> 
       </StyledBackgroud5>
       <StyledCard1 scrollY={scrollY}/>
     </>

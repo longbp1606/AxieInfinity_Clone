@@ -1,8 +1,11 @@
 import { Button, Typography } from '@mui/material';
 import * as Styled from './404.styled';
 import { Link } from 'react-router-dom';
+import { useDocumentTitle } from '../../hooks';
 
 const NotFound = () => {
+    useDocumentTitle('Page Not Found');
+    
     return (
         <Styled.NotFoundWrapper>
             <Styled.NotFoundContainer>

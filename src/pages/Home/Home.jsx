@@ -1,11 +1,14 @@
 import React from 'react'
-import { HomeWrapper } from './Home.styled';
+import EmbraceInfinity from './EmbraceInfinity/EmbraceInfinity';
+import { useDocumentTitle } from '../../hooks';
 
 const Home = () => {
+  useDocumentTitle('Axie Infinity - Battle, Collect, and Trade Collectible NFT Creatures');
+  
   return (
-    <HomeWrapper>
-      
-    </HomeWrapper>
+    <>
+      <EmbraceInfinity/>
+    </>
   )
 }
 

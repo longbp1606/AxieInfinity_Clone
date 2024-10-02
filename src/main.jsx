@@ -4,19 +4,19 @@ import App from './App.jsx'
 import GlobalStyles from './themes/globalStyles.js'
 import { ThemeProvider } from 'styled-components'
 import { ConfigProvider, App as AppAntd } from 'antd'
-import { createStyledBreakpoints } from 'styled-breakpoints/styled-breakpoints/index.js'
+import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 import { AntdThemeConfig } from './themes/index.js'
 
 export const breakpoints = {
   xs: '360px',
   sm: '576px',
   md: '768px',
-  lg: '99xpx',
+  lg: '992px',
   xl: '1200px',
   xxl: '1400px'
 };
 
-const theme = createStyledBreakpoints({
+const theme = createStyledBreakpointsTheme({
   breakpoints,
 });
 

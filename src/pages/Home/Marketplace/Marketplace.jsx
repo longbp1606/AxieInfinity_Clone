@@ -77,11 +77,14 @@ const StyledCharacterContainer = styled.div`
   z-index: 1; /* Cho nhân vật nằm phía trước bảng market */
 `;
 
-const StyledCharacter = styled.div`
+const StyledCharacter = styled.button`
+  background: none;
+  border: none;
   text-align: center;
   margin-top: -150px;
   color: rgb(223, 163, 99);
   position: relative; /* Để đế và nhân vật chồng lên nhau */
+  
 
   img.character {
     width: 350px;
@@ -98,7 +101,7 @@ const StyledCharacter = styled.div`
   img.stand {
     width: 250px; /* Điều chỉnh kích thước của đế */
     position: absolute;
-    bottom: -40px; /* Điều chỉnh để đế nằm dưới chân nhân vật */
+    bottom: -60px; /* Điều chỉnh để đế nằm dưới chân nhân vật */
     left: 50%;
     transform: translateX(-50%);
     
@@ -107,23 +110,65 @@ const StyledCharacter = styled.div`
   p {
     margin: -35px 50px;
     font-size: 16px;
-    font-weight: bold;
+    bottom:5px;
     position: relative;
     z-index: 2;
     color: rgb(58, 30, 16);
-    left:-50px;
+    left:-42px;
+    text-transform: uppercase;
   }
 
   .price {
     position: absolute;
-    bottom: 10px;
+    font-weight: bold;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     font-size: 18px;
     color: rgb(58, 30, 16);
   }
+  .view-text {
+    opacity: 0;
+    left: 35%;
+    transform: translateX(-50%);
+    font-size:16px;
+    font-family: Roboto Slab, serif;
+    bottom: -10px;
+    text-transform: none;
+    color: rgb(58, 30, 16);
+    transition: opacity 0.2s ease-in-out;
+  }
+  &:hover p, &:hover .price {
+    opacity: 0; /* Ẩn mã số và giá tiền khi hover */
+  }
+  &:hover .view-text {
+    opacity: 1; /* Hiển thị "View on Marketplace" khi hover */
+  }
 `;
 
+const StyledFlag = styled.div`
+  background-image: url('./src/assets/backgroud/flag-header.png');
+  background-size: contain;
+  top:60%;
+  width: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20vh;
+  color: white;
+  position: relative;
+`;
+const SlytedBackgroudFlag = styled.div`
+  background: linear-gradient(rgb(103, 19, 19) 0%, rgb(128, 31, 26) 100%);
+  background-size: contain;
+  top:90%;
+  width: 93.35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 40vh;
+  color: white;
+  position: relative;
+  left:40px;
+`;
 const Marketplace = () => {
     const [scrollY, setScrollY] = useState(0);
 
@@ -137,11 +182,14 @@ const Marketplace = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
 
   const handleVisitClick = () => {
     window.open("https://app.axieinfinity.com/marketplace/axies/", "_blank");
   };
-
+  const handleCharacterClick = (url) => {
+    window.open(url, "_blank");
+  };
   return (
     <>
       <StyledBackgroud6>
@@ -152,25 +200,103 @@ const Marketplace = () => {
           <ButtonVisit onClick={handleVisitClick}>Visit</ButtonVisit>
         </StyledMaketTable>
         <StyledCharacterContainer>
-          <StyledCharacter>
+
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973914/")}>
             <img src="./src/assets/figure/Market_1.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
             <p>#11513458</p>
             <p className="price">$2.29</p>
+            <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
-          <StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973914/")}>
             <img src="./src/assets/figure/Market_2.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
             <p>#11513458</p>
             <p className="price">$2.28</p>
+            <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
-          <StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973914/")}>
             <img src="./src/assets/figure/Market_3.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
             <p>#11513458</p>
             <p className="price">$2.27</p>
+            <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
         </StyledCharacterContainer>
+        <StyledCharacterContainer style={{ top: '43%' }}>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973917/")}>
+            <img src="./src/assets/figure/Market_4.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513461</p>
+            <p className="price">$2.26</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973918/")}>
+            <img src="./src/assets/figure/Market_5.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513462</p>
+            <p className="price">$2.25</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_6.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_7.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+        </StyledCharacterContainer>
+        <StyledCharacterContainer style={{top:'55%'}}>
+        <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_8.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_9.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+        </StyledCharacterContainer>
+        <StyledCharacterContainer style={{top:'67%'}}>
+        <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_10.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_11.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+          <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
+            <img src="./src/assets/figure/Market_12.png" alt="Character 1" className="character" />
+            <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
+            <p>#11513463</p>
+            <p className="price">$2.24</p>
+            <p className="view-text">View on Marketplace</p>
+          </StyledCharacter>
+        </StyledCharacterContainer>
+        <StyledFlag>
+          <SlytedBackgroudFlag>
+
+          </SlytedBackgroudFlag>
+        </StyledFlag>
       </StyledBackgroud6>
     </>
   );

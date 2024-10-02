@@ -3,6 +3,7 @@ export const theme = {
         white: '#FFF',
         black: '#000',
         discord: 'rgb(87, 101, 242)',
+        twitter: 'rgb(29, 155, 240)',
         footer: 'rgb(20, 20, 20)',
         textPrimary: 'rgb(58, 30, 16)',
         textForWoodBackground: 'rgb(223, 163, 99)',

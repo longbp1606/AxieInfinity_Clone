@@ -1,8 +1,8 @@
-import useDocumenTitle from "./useDocumentTitle"
+import useDocumentTitle from "./useDocumentTitle"
 import useScrollToTop from "./useScrollToTop"
 
 export {
-    useDocumenTitle,
+    useDocumentTitle,
     useScrollToTop
 }
 

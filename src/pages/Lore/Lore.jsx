@@ -1,8 +1,14 @@
 import { Typography } from '@mui/material';
 import * as Styled from './Lore.styled';
 import Cover from '../../assets/lore/cover.jpg';
+import { useDocumentTitle } from '../../hooks';
+import { useNavigate } from 'react-router-dom';
+import config from '../../config';
 
 const Lore = () => {
+    useDocumentTitle('Lore');    
+    const navigate = useNavigate();
+
     return (
         <Styled.LoreBackground>
             <Styled.LoreWrapper>
@@ -18,7 +24,9 @@ const Lore = () => {
                     </Styled.TextContainer>
 
                     <Styled.StoryContainer>
-                        <Styled.StoryBorder>
+                        <Styled.StoryBorder 
+                            onClick={() => navigate(config.routes.loreDetail.replace(':id','1'))}
+                        >
                             <Styled.StoryContent>
                                 <Styled.ImageContainer>
                                     <img src={Cover} alt='cover' />

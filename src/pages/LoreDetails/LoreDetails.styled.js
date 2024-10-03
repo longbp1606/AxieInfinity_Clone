@@ -19,6 +19,11 @@ export const StoryContainer = styled(Flex)`
     transition: width 0.2s;
 `;
 
+export const PageHolder = styled.div`
+    width: 100%;
+    height: auto;
+`;
+
 export const NavigationContainer = styled(Flex)`
     position: fixed;
     bottom: 0px;
@@ -30,12 +35,10 @@ export const PageListWrapper = styled(Flex)`
     backdrop-filter: blur(6px);
     padding: 16px 0px;
     transition: transform 0.3s ease-out;
-    transform: translateY(0%);
 `;
 
-export const PageListContainer = styled(Flex)`
+export const PageListContainer = styled.div`
     width: 100%;
-    height: 100%;
 `;
 
 export const PageListCarousel = styled(Carousel)`
@@ -46,6 +49,10 @@ export const PageListCarousel = styled(Carousel)`
 
 export const PageContainer = styled(Flex)`
     width: 100%;
+
+    & .ant-image {
+        cursor: pointer;
+    }
 
     & span.ant-typography {
         color: ${theme.colors.white};
@@ -102,7 +109,7 @@ export const PagePaginationButton = styled(Flex)`
     & span.ant-typography {
         min-width: 40px;
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 500;
         color: ${theme.colors.white};
     }

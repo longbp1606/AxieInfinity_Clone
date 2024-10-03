@@ -296,7 +296,7 @@ const Marketplace = () => {
         </StyledCharacterContainer>
         <StyledFlag>
           <SlytedBackgroudFlag>
-
+            
           </SlytedBackgroudFlag>
         </StyledFlag>
       </StyledBackgroud6>

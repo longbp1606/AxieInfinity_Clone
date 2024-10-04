@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import NavImage from '../../assets/nav/nav.png';
 import { theme } from "../../themes";
+import { AppBar } from "@mui/material";
+import NavMobile from '../../assets/nav/nav-mobile.png';
+
+export const AppBarStyled = styled(AppBar)`
+    z-index: 100;
+`;
 
 export const NavbarWrapper = styled.div`
     display: flex;
@@ -17,9 +23,7 @@ export const NavbarWrapper = styled.div`
     height: 80px;
     z-index: 99;
     padding: 30px 30px 38px;
-    -webkit-box-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
     align-items: center;
     max-width: 100%;
 
@@ -41,12 +45,33 @@ export const NavbarWrapper = styled.div`
             }
         }
     }
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+        background-image: url(${NavMobile});
+        background-size: contain;
+        width: 320px;
+        height: 64px;
+        padding: 30px 30px 38px 10px;
+    }
 `;
 
 export const NavbarContainer = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 24px;
+
+    ${({ theme }) => theme.breakpoints.down('md')} {
+        justify-content: space-between;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+        justify-content: space-between;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+        justify-content: space-between;
+    }
 `;
 
 export const LogoContainer = styled.div`
@@ -55,7 +80,11 @@ export const LogoContainer = styled.div`
 `;
 
 export const Logo = styled.img`
-    width: 110px
+    width: 110px;
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+        width: 85px;
+    }
 `;
 
 export const NavbarList = styled.div`
@@ -81,7 +110,7 @@ export const MoreContainer = styled.div`
     align-items: center;
     font-weight: 700;
     font-size: 2rem;
-    color: rgba(255,255,255,0.6);
+    color: ${theme.colors.textLore};
     transition: all linear 0.25s;
     padding: 20px 0px;
     text-transform: uppercase;

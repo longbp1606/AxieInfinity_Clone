@@ -1,1 +1,1 @@
-export { default } from './TermOfUse';
+export { default } from './TermsOfUse';

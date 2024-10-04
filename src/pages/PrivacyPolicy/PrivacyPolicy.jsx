@@ -1,11 +1,5 @@
 import * as Styled from "./PrivacyPolicy.styled";
-import { Link } from "react-router-dom";
-import { Button, Col, Image, Row, Typography } from "antd";
-import StakingDiagram from "../../assets/axs/staking-diagram.png";
-import Allocation from "../../assets/axs/allocation.png";
-import UnlockSchedule from "../../assets/axs/unlock-schedule.png";
 import { useDocumentTitle } from "../../hooks";
-const { Title, Text } = Typography;
 
 const PrivacyPolicy = () => {
   useDocumentTitle("Privacy Policy");

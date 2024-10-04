@@ -24,6 +24,11 @@ export const NavContainer = styled.div`
     flex-flow: wrap;
     gap: 40px;
     align-items: center;
+    justify-content: center;
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+        flex-direction: column;
+    }
 
     & a {
         color: ${theme.colors.textNavigation};

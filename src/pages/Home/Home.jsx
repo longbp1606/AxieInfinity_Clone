@@ -9,7 +9,7 @@ const Home = () => {
   
   return (
     <>
-    <Introduction/>
+
       <Marketplace/>
       <EmbraceInfinity/>
     </>

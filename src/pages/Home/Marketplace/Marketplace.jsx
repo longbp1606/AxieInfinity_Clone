@@ -13,7 +13,6 @@ const StyledBackgroud6 = styled.div`
   align-items: center;
   color: white;
   position: relative;
-
   
 `;
 
@@ -25,12 +24,13 @@ const StyledMaketTable = styled.div`
   background-position: center;
   margin-top: -190%;
   height: 45vh; 
-  z-index: 1; /* Để bảng Market nổi lên trên */
+  z-index: 1;
   
   h2 {
     color: rgb(223, 163, 99);
     font-size: 250%;
     margin-top: 65px;
+    
     text-align: center;
     font-family: Rowdies, serif;
     text-transform: uppercase;
@@ -43,7 +43,7 @@ const StyledMaketTable = styled.div`
     text-align: center;
     font-family: Roboto Slab, serif;
     line-height: 0px;
-    font-weight: bold;
+    font-weight: normal;
   }
 `;
 
@@ -274,9 +274,48 @@ const StyledHeading = styled.h1`
   font-size: 14px; /* Kích thước chữ */
   color: rgb(223, 163, 99); /* Màu sắc chữ */
   text-align: center; /* Canh giữa chữ */
-  margin-top: -20px;
+  margin-top: -30px;
   padding:0 250px;
 `;
+
+const StyledIconsContainer = styled.div`
+  position: absolute;
+  top: 75%; 
+  left: 65%;
+  transform: translateX(-50%);
+  display: flex;
+  gap:20%;
+  align-items: center; 
+  width: 100%;
+  z-index: 1;
+`;
+
+const StyledImageIcons = styled.button`
+  background: none;
+  border: none;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(223, 163, 99);
+
+  img.icons {
+    
+    height: auto;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+    transform: scale(1.2);
+  }
+  }
+  
+  .h2 {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  .h{
+    font-family: "Roboto Slab", serif;
+  }
+`;
+
 const Marketplace = () => {
     const [scrollY, setScrollY] = useState(0);
     const images = [
@@ -318,7 +357,7 @@ const Marketplace = () => {
 
   // Hàm xử lý khi nhấn nút Own
   const handleOwnClick = () => {
-    setCurrentImageIndex(2); // 2 cho hình ảnh Own
+    setCurrentImageIndex(2);
   };
   useEffect(() => {
     const handleScroll = () => {
@@ -348,7 +387,6 @@ const Marketplace = () => {
           <ButtonVisit onClick={handleVisitClick}>Visit</ButtonVisit>
         </StyledMaketTable>
         <StyledCharacterContainer>
-
           <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973914/")}>
             <img src="./src/assets/figure/Market_1.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
@@ -465,6 +503,23 @@ const Marketplace = () => {
             {currentImageIndex === 2 && (
               <StyledHeading>Your axie digital collectibles are yours. You can use them across multiple games, trade them, sell them, and even use them to obtain more unique tradable resources and collectibles.</StyledHeading>
             )}
+            <StyledIconsContainer>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/egg.png" alt="icon egg" className="icons" />
+              <h2 className = 'h2'>12.060.348</h2>
+              <h className = 'h'>Total Axies</h>
+              </StyledImageIcons>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/idol.png" alt="icon idol" className="icons" />
+              <h2 className = 'h2'>2.020.310</h2>
+              <h className = 'h'>Total Owners</h>
+              </StyledImageIcons>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/coin.png" alt="icon coin" className="icons" />
+              <h2 className = 'h2'>$3.5B</h2>
+              <h className = 'h'>Total Sales</h>
+              </StyledImageIcons>
+            </StyledIconsContainer>
           </SlytedBackgroudFlag>
         </StyledFlag>
       </StyledBackgroud6>

@@ -166,14 +166,160 @@ const SlytedBackgroudFlag = styled.div`
   width: 93.35%;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: 122vh;
   color: white;
+  border-radius: 0 0 60px 60px;
   position: relative;
   left:40px;
 `;
+const SlytedImagePlayConllectOwn = styled.div`
+  background-image: url(${(props) => props.image});
+  background-size: contain; /* Giữ tỉ lệ ảnh mà không bị cắt */
+  background-repeat: no-repeat;
+  margin-left:80px;
+  margin-top:5px;
+  width: 85%;
+  height: 66.1vh;
+  border-radius: 30px;
+  transition: background-image 0.5s ease-in-out;
+  position: relative;
+  border: 1px solid rgba(223, 163, 99, 0.8); /* Màu sắc và độ trong suốt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+`;
+const SlytedButtonLeft = styled.button`
+  background-image: url('./src/assets/play-collect-own/icons/left-arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 70px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  border: none;
+  outline: none;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 2;
+  background-color: transparent;
+`;
+const SlytedButtonRight = styled.button`
+  background-image: url('./src/assets/play-collect-own/icons/right-arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 70px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  border: none;
+  outline: none; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 2;
+  background-color: transparent;
+`;
+const SlytedButtonPlay = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  margin-top: 30px;
+  margin-left: 150px;
+  border-radius: 20px;
+  padding: 15px 0px;
+  font-size: 45px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+
+const SlytedButtonCollect = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 45px;
+  margin-right:40px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+
+const SlytedButtonOwn = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 45px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+const SlytedIconGem = styled.div`
+  background-image: url('./src/assets/play-collect-own/icons/gem.png');
+  width:100%;
+  height:10vh;
+  margin-top:-35px;
+  margin-left:250px;
+  background-repeat: no-repeat;
+`;
+const StyledHeading = styled.h1`
+  /* Thay đổi các thuộc tính CSS ở đây */
+  font-size: 14px; /* Kích thước chữ */
+  color: rgb(223, 163, 99); /* Màu sắc chữ */
+  text-align: center; /* Canh giữa chữ */
+  margin-top: -20px;
+  padding:0 250px;
+`;
 const Marketplace = () => {
     const [scrollY, setScrollY] = useState(0);
+    const images = [
+      './src/assets/play-collect-own/play.jpg',
+      './src/assets/play-collect-own/collect.jpg',
+      './src/assets/play-collect-own/own.jpg',
+    ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Tự động thay đổi hình ảnh sau mỗi 5 giây
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // 5 giây
+    return () => clearInterval(interval); // Clear interval khi component unmount
+  }, []);
+
+  // Hàm xử lý khi bấm nút left
+  const handleLeftClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Hàm xử lý khi bấm nút right
+  const handleRightClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePlayClick = () => {
+    setCurrentImageIndex(0);
+  };
+
+  // Hàm xử lý khi nhấn nút Collect
+  const handleCollectClick = () => {
+    setCurrentImageIndex(1); // 1 cho hình ảnh Collect
+  };
+
+  // Hàm xử lý khi nhấn nút Own
+  const handleOwnClick = () => {
+    setCurrentImageIndex(2); // 2 cho hình ảnh Own
+  };
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -296,7 +442,29 @@ const Marketplace = () => {
         </StyledCharacterContainer>
         <StyledFlag>
           <SlytedBackgroudFlag>
-            
+            <SlytedImagePlayConllectOwn image={images[currentImageIndex]}>
+            <SlytedButtonLeft onClick={handleLeftClick} />
+            <SlytedButtonRight onClick={handleRightClick} />
+            </SlytedImagePlayConllectOwn>
+            <SlytedButtonPlay active={currentImageIndex === 0} onClick={handlePlayClick}>Play
+            <SlytedIconGem/>
+            </SlytedButtonPlay>
+            <SlytedButtonCollect active={currentImageIndex === 1} onClick={handleCollectClick}>Collect
+              <SlytedIconGem/>
+
+            </SlytedButtonCollect>
+            <SlytedButtonOwn active={currentImageIndex === 2} onClick= {handleOwnClick}>Own
+
+            </SlytedButtonOwn>
+            {currentImageIndex === 0 && (
+              <StyledHeading>Axies are tickets to an infinite universe of games. Axie owners get automatic access to new games and experiences when they're released!</StyledHeading>
+            )}
+            {currentImageIndex === 1 && (
+            <StyledHeading>Some Axies are rare with limited-edition body parts that will never be released again. Show off to your friends and family!</StyledHeading>
+            )}
+            {currentImageIndex === 2 && (
+              <StyledHeading>Your axie digital collectibles are yours. You can use them across multiple games, trade them, sell them, and even use them to obtain more unique tradable resources and collectibles.</StyledHeading>
+            )}
           </SlytedBackgroudFlag>
         </StyledFlag>
       </StyledBackgroud6>

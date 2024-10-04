@@ -61,6 +61,10 @@ export const NavbarContainer = styled.div`
     align-items: center;
     gap: 24px;
 
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        justify-content: space-between;
+    }
+
     ${({ theme }) => theme.breakpoints.down('md')} {
         justify-content: space-between;
     }
@@ -147,9 +151,10 @@ export const DropdownContainer = styled.div`
     border-radius: 0px 0px 16px 16px;
     z-index: 2;
     top: 85%;
-    left: 63%;
+    left: 100%;
     padding: 16px 24px;
     gap: 8px;
+    text-wrap: nowrap;
 
     & a {
         padding: 10px 0;

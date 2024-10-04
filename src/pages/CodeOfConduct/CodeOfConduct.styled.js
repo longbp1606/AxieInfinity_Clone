@@ -26,30 +26,30 @@ export const HeaderWrapper = styled.div`
     
     
     & h1 {    
-        color: ${theme.colors.white};
-        text-align: center;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 48px;
-        line-height: 1.16667;
+      color: ${theme.colors.white};
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 48px;
+      line-height: 1.16667;
     }
 
     & p {
-        max-width: 1080px;
-        font-size: 20px;
-        display: flex;
-        gap: 20px;
+      max-width: 1080px;
+      font-size: 20px;
+      display: flex;
+      gap: 20px;
 
-        &:nth-child(3) {
-            font-weight: 700;
-        }
+      &:nth-child(3) {
+        font-weight: 700;
+      }
 
-        & a {
-            font-size: 24px;
-            font-weight: 700;
-            color: ${theme.colors.white};
-            text-shadow: rgb(35, 99, 221) 0px 2px 20px;
-        }
+      & a {
+        font-size: 24px;
+        font-weight: 700;
+        color: ${theme.colors.white};
+        text-shadow: rgb(35, 99, 221) 0px 2px 20px;
+      }
     }
 `;
 
@@ -137,8 +137,9 @@ export const PaperContent = styled.div`
     }
 
     & em{
-    font-style: italic;
+      font-style: italic;
     }
+      
     & table{
       border: none;
       margin-top: 20px;

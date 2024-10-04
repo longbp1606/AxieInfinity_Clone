@@ -6,13 +6,15 @@ const StyledBackgroud6 = styled.div`
   background-size: cover;
   width: 100%;
   background-position: center;
-  height: 280vh; 
+  height:500vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
   position: relative;
+
+  
 `;
 
 const StyledMaketTable = styled.div`
@@ -21,7 +23,7 @@ const StyledMaketTable = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   background-position: center;
-  margin-top: -100%;
+  margin-top: -190%;
   height: 45vh; 
   z-index: 1; /* Để bảng Market nổi lên trên */
   
@@ -69,7 +71,7 @@ const ButtonVisit = styled.button`
 
 const StyledCharacterContainer = styled.div`
   position: absolute; /* Đặt vị trí tuyệt đối để dễ di chuyển */
-  top: 30%; /* Điều chỉnh vị trí theo chiều dọc */
+  top: 17%; /* Điều chỉnh vị trí theo chiều dọc */
   left: 50%; /* Canh giữa theo chiều ngang */
   transform: translateX(-50%); /* Canh chỉnh trung tâm */
   display: flex;
@@ -149,7 +151,7 @@ const StyledCharacter = styled.button`
 const StyledFlag = styled.div`
   background-image: url('./src/assets/backgroud/flag-header.png');
   background-size: contain;
-  top:60%;
+  top:32%;
   width: 80%;
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +166,7 @@ const SlytedBackgroudFlag = styled.div`
   width: 93.35%;
   background-repeat: no-repeat;
   background-position: center;
-  height: 40vh;
+  height: 100vh;
   color: white;
   position: relative;
   left:40px;
@@ -223,7 +225,7 @@ const Marketplace = () => {
             <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
         </StyledCharacterContainer>
-        <StyledCharacterContainer style={{ top: '43%' }}>
+        <StyledCharacterContainer style={{ top: '25%' }}>
           <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973917/")}>
             <img src="./src/assets/figure/Market_4.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
@@ -253,7 +255,7 @@ const Marketplace = () => {
             <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
         </StyledCharacterContainer>
-        <StyledCharacterContainer style={{top:'55%'}}>
+        <StyledCharacterContainer style={{top:'32%'}}>
         <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
             <img src="./src/assets/figure/Market_8.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
@@ -269,7 +271,7 @@ const Marketplace = () => {
             <p className="view-text">View on Marketplace</p>
           </StyledCharacter>
         </StyledCharacterContainer>
-        <StyledCharacterContainer style={{top:'67%'}}>
+        <StyledCharacterContainer style={{top:'39%'}}>
         <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973919/")}>
             <img src="./src/assets/figure/Market_10.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
@@ -294,7 +296,7 @@ const Marketplace = () => {
         </StyledCharacterContainer>
         <StyledFlag>
           <SlytedBackgroudFlag>
-
+            
           </SlytedBackgroudFlag>
         </StyledFlag>
       </StyledBackgroud6>

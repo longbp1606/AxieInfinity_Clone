@@ -45,7 +45,9 @@ export const CommunityBackground = styled.div`
 //Template
 export const AnimationLayer = styled.div`
     animation-duration: 1s;
-    opacity: 1;
+    opacity: ${(props) => (props.isVisible ? 1 : 0)};
+    transform: ${(props) => (props.isVisible ? 'scale(1)' : 'scale(0.8)')};
+    transition: opacity 0.5s ease, transform 0.5s ease;
 `;
 
 export const PhotoWrapperTemplate = css`
@@ -181,6 +183,15 @@ export const SocialWrapper = styled(Flex)`
     left: 50%;
     bottom: 30px;
     transform: translateX(-50%);
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        position: static;
+        transform: none;    
+        padding: 20px 20px 60px;
+        background: rgb(11, 38, 112);
+        width: 100%;
+        justify-content: center;
+    }
 `;
 
 export const SocialContainer = styled(Flex)`
@@ -191,7 +202,7 @@ export const SocialContainer = styled(Flex)`
         font-size: 2rem;
         text-align: center;
         color: ${theme.colors.textGalaxy};
-        font-weight: 400;
+        font-weight: 500;
     }
 `;
 
@@ -214,6 +225,11 @@ export const ButtonTemplate = css`
 
     &:hover {
         transform: scale(1.05);
+    }
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        width: 154px;
+        height: 48px;
     }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Overlay = styled.div`
+export const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ const Overlay = styled.div`
   z-index: 1000;
 `;
 
-const ModalContent = styled.div`
+export const ModalContent = styled.div`
   background: #fff;
   border-radius: 8px;
   padding: 20px;
@@ -22,7 +22,7 @@ const ModalContent = styled.div`
   position: relative; /* For close button */
 `;
 
-const CloseButton = styled.button`
+export const CloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;

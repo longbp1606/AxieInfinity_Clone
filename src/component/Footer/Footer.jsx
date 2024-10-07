@@ -20,7 +20,7 @@ const Footer = () => {
 
         <Styled.NavContainer>
             {FooterData.map((data) => (
-                <Link to={data.to} key={data.key} target='_blank'>
+                <Link to={data.to} key={data.key} target={data.to.includes('http') ? '_blank' : ''}>
                     {data.label}
                 </Link>
             ))}

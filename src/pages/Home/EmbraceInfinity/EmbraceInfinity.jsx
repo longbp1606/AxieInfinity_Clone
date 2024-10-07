@@ -4,6 +4,7 @@ import ConstellationURL from '../../../assets/templates/home/constellation.png';
 import { Link } from 'react-router-dom';
 import { EmbraceData } from './EmbraceInfinity.data';
 import Community from '../Community/Community';
+import { useEffect, useState } from 'react';
 
 const { Title, Text } = Typography;
 

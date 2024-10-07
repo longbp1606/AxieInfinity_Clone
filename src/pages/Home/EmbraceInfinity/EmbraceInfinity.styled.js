@@ -53,7 +53,11 @@ export const EmbraceImageArea = styled.div`
     width: 100%;
     max-width: 1280px;
     margin: 0px auto;
-    // transform: translateY(100px);
+    padding-top: 10%;
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        margin-top: 10%;
+    }
 `;
 
 export const EmbraceImageWrapper = styled(Flex)`
@@ -62,18 +66,33 @@ export const EmbraceImageWrapper = styled(Flex)`
 
 export const FirstHalfContainer = styled(Flex)`
     transform: translateX(-25%);
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        transform: translateX(0);
+        gap: 50px;
+    }
 `;
 
 export const SecondHalfContainer = styled(Flex)`
-
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        gap: 50px;
+    }
 `;
 
 export const ElementContainer = styled(Flex)`
     width: 360px;
     margin-bottom: -15%;
 
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        margin-bottom: 0;
+    }
+
     &:nth-of-type(1) {
         align-self: flex-end;
+        
+        ${({ theme }) => theme.breakpoints.down('xl')} {
+            align-self: center;
+        }
     }
 
     &:nth-of-type(2) {
@@ -82,6 +101,10 @@ export const ElementContainer = styled(Flex)`
 
     &:nth-of-type(3) {
         align-self: flex-start;
+
+        ${({ theme }) => theme.breakpoints.down('xl')} {
+            align-self: center;
+        }
     }
 
     & h3.ant-typography {

@@ -6,6 +6,7 @@ export const theme = {
         twitter: 'rgb(29, 155, 240)',
         footer: 'rgb(20, 20, 20)',
         textPrimary: 'rgb(58, 30, 16)',
+        textPaper: 'rgb(112, 53, 25)',
         textForWoodBackground: 'rgb(223, 163, 99)',
         textGalaxy: 'rgb(120, 185, 251)',
         textLore: 'rgb(240, 220, 192)',

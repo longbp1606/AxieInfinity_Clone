@@ -16,6 +16,11 @@ export const LoreWrapper = styled.div`
     max-width: 1280px;
     margin: 0px auto;
     height: 100%;
+
+    ${({theme}) => theme.breakpoints.down('xl')} {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `;
 
 export const LoreContainer = styled.div`
@@ -94,6 +99,10 @@ export const ImageContainer = styled.div`
     
     & img {
         width: 100%;
+    }
+
+    ${({theme}) => theme.breakpoints.down('sm')} {
+        width: 100%
     }
 `;
 

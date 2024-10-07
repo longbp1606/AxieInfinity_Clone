@@ -179,5 +179,5 @@ export const ImageNote = styled.div`
     max-width: 142px;
 `
 export const ImageFigure = styled.img`
-    width: 70%;
+    width: 100%;
 `

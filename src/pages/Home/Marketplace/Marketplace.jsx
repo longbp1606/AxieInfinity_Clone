@@ -13,7 +13,6 @@ const StyledBackgroud6 = styled.div`
   align-items: center;
   color: white;
   position: relative;
-
   
 `;
 
@@ -25,12 +24,13 @@ const StyledMaketTable = styled.div`
   background-position: center;
   margin-top: -190%;
   height: 45vh; 
-  z-index: 1; /* Để bảng Market nổi lên trên */
+  z-index: 1;
   
   h2 {
     color: rgb(223, 163, 99);
     font-size: 250%;
     margin-top: 65px;
+    
     text-align: center;
     font-family: Rowdies, serif;
     text-transform: uppercase;
@@ -43,7 +43,7 @@ const StyledMaketTable = styled.div`
     text-align: center;
     font-family: Roboto Slab, serif;
     line-height: 0px;
-    font-weight: bold;
+    font-weight: normal;
   }
 `;
 
@@ -166,14 +166,199 @@ const SlytedBackgroudFlag = styled.div`
   width: 93.35%;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  height: 122vh;
   color: white;
+  border-radius: 0 0 60px 60px;
   position: relative;
   left:40px;
 `;
+const SlytedImagePlayConllectOwn = styled.div`
+  background-image: url(${(props) => props.image});
+  background-size: contain; /* Giữ tỉ lệ ảnh mà không bị cắt */
+  background-repeat: no-repeat;
+  margin-left:80px;
+  margin-top:5px;
+  width: 85%;
+  height: 66.1vh;
+  border-radius: 30px;
+  transition: background-image 0.5s ease-in-out;
+  position: relative;
+  border: 1px solid rgba(223, 163, 99, 0.8); /* Màu sắc và độ trong suốt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+`;
+const SlytedButtonLeft = styled.button`
+  background-image: url('./src/assets/play-collect-own/icons/left-arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 70px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  border: none;
+  outline: none;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  cursor: pointer;
+  z-index: 2;
+  background-color: transparent;
+`;
+const SlytedButtonRight = styled.button`
+  background-image: url('./src/assets/play-collect-own/icons/right-arrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 70px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  border: none;
+  outline: none; 
+  transform: translateY(-50%);
+  cursor: pointer;
+  opacity: 0.8;
+  z-index: 2;
+  background-color: transparent;
+`;
+const SlytedButtonPlay = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  margin-top: 30px;
+  margin-left: 150px;
+  border-radius: 20px;
+  padding: 15px 0px;
+  font-size: 45px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+
+const SlytedButtonCollect = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 45px;
+  margin-right:40px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+
+const SlytedButtonOwn = styled.button`
+  background-color: transparent;
+  color: ${({ active }) => (active ? 'white' : 'rgb(223, 163, 99)')};
+  border: none;
+  border-radius: 20px;
+  padding: 15px 30px;
+  font-size: 45px;
+  font-family: Rowdies, serif;
+  &:hover{
+    color: white;
+  }
+`;
+const SlytedIconGem = styled.div`
+  background-image: url('./src/assets/play-collect-own/icons/gem.png');
+  width:100%;
+  height:10vh;
+  margin-top:-35px;
+  margin-left:250px;
+  background-repeat: no-repeat;
+`;
+const StyledHeading = styled.h1`
+  /* Thay đổi các thuộc tính CSS ở đây */
+  font-size: 14px; /* Kích thước chữ */
+  color: rgb(223, 163, 99); /* Màu sắc chữ */
+  text-align: center; /* Canh giữa chữ */
+  margin-top: -30px;
+  padding:0 250px;
+`;
+
+const StyledIconsContainer = styled.div`
+  position: absolute;
+  top: 75%; 
+  left: 65%;
+  transform: translateX(-50%);
+  display: flex;
+  gap:20%;
+  align-items: center; 
+  width: 100%;
+  z-index: 1;
+`;
+
+const StyledImageIcons = styled.button`
+  background: none;
+  border: none;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(223, 163, 99);
+
+  img.icons {
+    
+    height: auto;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+    transform: scale(1.2);
+  }
+  }
+  
+  .h2 {
+    margin-top: 10px;
+    font-size: 24px;
+  }
+  .h{
+    font-family: "Roboto Slab", serif;
+  }
+`;
+
 const Marketplace = () => {
     const [scrollY, setScrollY] = useState(0);
+    const images = [
+      './src/assets/play-collect-own/play.jpg',
+      './src/assets/play-collect-own/collect.jpg',
+      './src/assets/play-collect-own/own.jpg',
+    ];
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Tự động thay đổi hình ảnh sau mỗi 5 giây
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000); // 5 giây
+    return () => clearInterval(interval); // Clear interval khi component unmount
+  }, []);
+
+  // Hàm xử lý khi bấm nút left
+  const handleLeftClick = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Hàm xử lý khi bấm nút right
+  const handleRightClick = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handlePlayClick = () => {
+    setCurrentImageIndex(0);
+  };
+
+  // Hàm xử lý khi nhấn nút Collect
+  const handleCollectClick = () => {
+    setCurrentImageIndex(1); // 1 cho hình ảnh Collect
+  };
+
+  // Hàm xử lý khi nhấn nút Own
+  const handleOwnClick = () => {
+    setCurrentImageIndex(2);
+  };
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -202,7 +387,6 @@ const Marketplace = () => {
           <ButtonVisit onClick={handleVisitClick}>Visit</ButtonVisit>
         </StyledMaketTable>
         <StyledCharacterContainer>
-
           <StyledCharacter onClick={() => handleCharacterClick("https://app.axieinfinity.com/marketplace/axies/10973914/")}>
             <img src="./src/assets/figure/Market_1.png" alt="Character 1" className="character" />
             <img src="./src/assets/stand/stand.png" alt="Stand" className="stand" />
@@ -296,7 +480,46 @@ const Marketplace = () => {
         </StyledCharacterContainer>
         <StyledFlag>
           <SlytedBackgroudFlag>
-            
+            <SlytedImagePlayConllectOwn image={images[currentImageIndex]}>
+            <SlytedButtonLeft onClick={handleLeftClick} />
+            <SlytedButtonRight onClick={handleRightClick} />
+            </SlytedImagePlayConllectOwn>
+            <SlytedButtonPlay active={currentImageIndex === 0} onClick={handlePlayClick}>Play
+            <SlytedIconGem/>
+            </SlytedButtonPlay>
+            <SlytedButtonCollect active={currentImageIndex === 1} onClick={handleCollectClick}>Collect
+              <SlytedIconGem/>
+
+            </SlytedButtonCollect>
+            <SlytedButtonOwn active={currentImageIndex === 2} onClick= {handleOwnClick}>Own
+
+            </SlytedButtonOwn>
+            {currentImageIndex === 0 && (
+              <StyledHeading>Axies are tickets to an infinite universe of games. Axie owners get automatic access to new games and experiences when they're released!</StyledHeading>
+            )}
+            {currentImageIndex === 1 && (
+            <StyledHeading>Some Axies are rare with limited-edition body parts that will never be released again. Show off to your friends and family!</StyledHeading>
+            )}
+            {currentImageIndex === 2 && (
+              <StyledHeading>Your axie digital collectibles are yours. You can use them across multiple games, trade them, sell them, and even use them to obtain more unique tradable resources and collectibles.</StyledHeading>
+            )}
+            <StyledIconsContainer>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/egg.png" alt="icon egg" className="icons" />
+              <h2 className = 'h2'>12.060.348</h2>
+              <h className = 'h'>Total Axies</h>
+              </StyledImageIcons>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/idol.png" alt="icon idol" className="icons" />
+              <h2 className = 'h2'>2.020.310</h2>
+              <h className = 'h'>Total Owners</h>
+              </StyledImageIcons>
+              <StyledImageIcons>
+              <img src="./src/assets/play-collect-own/icons/coin.png" alt="icon coin" className="icons" />
+              <h2 className = 'h2'>$3.5B</h2>
+              <h className = 'h'>Total Sales</h>
+              </StyledImageIcons>
+            </StyledIconsContainer>
           </SlytedBackgroudFlag>
         </StyledFlag>
       </StyledBackgroud6>

@@ -1,8 +1,12 @@
 import { useRoutes } from "react-router-dom"
 import MainRoutes from "./MainRoutes"
+import LoreRoutes from "./LoreRoutes";
+import { useScrollToTop } from "../hooks";
 
 const RoutesComponent = () => {
-    return useRoutes([MainRoutes]);
+    useScrollToTop();
+    
+    return useRoutes([MainRoutes, LoreRoutes]);
 };
 
 export default RoutesComponent;

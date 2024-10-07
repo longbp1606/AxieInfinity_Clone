@@ -8,7 +8,7 @@ import { createStyledBreakpointsTheme } from 'styled-breakpoints';
 import { AntdThemeConfig } from './themes/index.js'
 
 export const breakpoints = {
-  xs: '360px',
+  xs: '385px',
   sm: '576px',
   md: '768px',
   lg: '992px',

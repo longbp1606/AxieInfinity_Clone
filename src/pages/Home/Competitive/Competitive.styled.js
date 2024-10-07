@@ -90,7 +90,7 @@ export const Background2Wrapper = styled.div`
     position: absolute;
     inset: -60px 0px;
     will-change: transform;
-    transform: translateY(-22.2562px);
+    transform: translateY(-60px);
 `;
 
 export const WoodenSignContainer = styled.div`
@@ -133,6 +133,12 @@ export const EnterTheArenaContainer = styled.div`
     transform: translateX(-50%) translateY(30%);
     z-index: 4;
     width: 100%;
+
+    @media (max-width: 1280px) {
+        position: static;
+        transform: none;
+        background: linear-gradient(rgb(56, 38, 50), rgb(55, 37, 50));
+    }
 `;
 
 export const EnterTheArenaWrapper = styled.div`
@@ -141,6 +147,11 @@ export const EnterTheArenaWrapper = styled.div`
     width: 100%;
     max-width: 1280px;
     margin: 0px auto;
+
+     @media (max-width: 1280px) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `;
 
 export const EnterTheArenaContent = styled.div`
@@ -151,9 +162,10 @@ export const EnterTheArenaContent = styled.div`
     width: 100%;
     position: relative;
     z-index: 3;
+    
 
     @media (max-width: 1280px) {
-        margin-top: 1150px;
+        margin-top: -100px;
         flex-direction: column;
         display: flex;
         -webkit-box-align: center;
@@ -283,7 +295,7 @@ export const EnterTheArenaContentButton = styled.div`
     gap: 20px;
 
     & button{
-    margin-top: 36px;
+    margin-top: 36px !important;
     display: inline-flex;
     position: relative;
     box-sizing: border-box;

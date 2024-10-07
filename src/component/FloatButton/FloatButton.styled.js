@@ -18,6 +18,12 @@ export const FloatButtonWrapper = styled.div`
     &:hover {
         transform: scale(1.08);
     }
+
+    ${({ theme }) => theme.breakpoints.down('md')} {
+        right: 0;
+        border-radius: 8px 0px 0px 8px;
+        padding: 6px 12px;
+    }
 `;
 
 export const DiscordLogo = styled.img``;

@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Showcase from './Showcase';
 import Introduction from './Introduction/Introduction';
 import Marketplace from './Marketplace/Marketplace';
+import Competitive from './Competitive/Competitive';
 import EmbraceInfinity from './EmbraceInfinity/EmbraceInfinity';
 import { useDocumentTitle } from '../../hooks';
 
@@ -10,7 +12,9 @@ const Home = () => {
   return (
     <>
       <Introduction/>
+      <Showcase/>
       <Marketplace/>
+      <Competitive/>
       <EmbraceInfinity/>
     </>
   )

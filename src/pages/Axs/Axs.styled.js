@@ -50,6 +50,12 @@ export const HeaderWrapper = styled.div`
             text-shadow: rgb(35, 99, 221) 0px 2px 20px;
         }
     }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+        & h1 {
+            font-size: 4rem;
+        }
+    }
 `;
 
 export const BodyWrapper = styled.div`
@@ -145,6 +151,19 @@ export const IntroductionSection = styled.div`
             }
         }
     }
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        & .ant-row {
+            gap: 40px;
+            flex-direction: column;
+            align-items: center;
+
+            & .ant-col {
+                width: auto;
+                max-width: 340px;
+            }
+        }
+    }
 `;
 
 export const StakingSection = styled.div`
@@ -188,10 +207,37 @@ export const StakingSection = styled.div`
             }
         }
     }
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        & .ant-row {
+            gap: 40px;
+            flex-direction: column;
+            align-items: center;
+
+            & .ant-col:nth-child(1) {
+                align-items: center;
+                width: 100%;
+                max-width: 560px;
+                margin-top: 0;
+                
+                .ant-typography {
+                    text-align: center;
+                }
+            }
+        }
+    }
 `;
 
 export const DiagramSection = styled.div`
     width: 100%;
     text-align: center;
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        & .ant-row {
+            gap: 50px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 `;
 

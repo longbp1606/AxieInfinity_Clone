@@ -16,12 +16,12 @@ import {
 import Modal from '../../../component/Modal';
 
 // Correct relative paths based on your folder structure
-import playButton from '../../assets/showcase/play-button.png';
-import television from '../../assets/showcase/television.png';
-import thumbnail from '../../assets/showcase/thumbnail.jpg';
-import note1 from '../../assets/showcase/note-1.png';
-import note2 from '../../assets/showcase/note-2.png';
-import note3 from '../../assets/showcase/note-3.png';
+import playButton from '../../../assets/showcase/play-button.png';
+import television from '../../../assets/showcase/television.png';
+import thumbnail from '../../../assets/showcase/thumbnail.jpg';
+import note1 from '../../../assets/showcase/note-1.png';
+import note2 from '../../../assets/showcase/note-2.png';
+import note3 from '../../../assets/showcase/note-3.png';
 
 const Showcase = () => {
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // State for the video modal

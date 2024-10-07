@@ -44,7 +44,7 @@ const Showcase = () => {
     };
 
     return (
-        <HomeWrapper>
+        <ShowcaseWrapper>
             {/* Television with thumbnail and play button */}
             <TelevisionContainer>
                 <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
@@ -88,7 +88,7 @@ const Showcase = () => {
                 onClose={closeTrailerModal}
                 videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Change to the appropriate trailer video link
             />
-        </HomeWrapper>
+        </ShowcaseWrapper>
     )
 }
 

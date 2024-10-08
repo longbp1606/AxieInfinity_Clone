@@ -9,8 +9,10 @@ import { GoScreenFull } from "react-icons/go";
 import { AiOutlineFullscreenExit } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import config from '../../config';
+import { PiBookOpenText } from "react-icons/pi";
+import { IoClose } from "react-icons/io5";
 
-const { Text } = Typography;
+const { Title, Text } = Typography;
 
 const LoreDetails = () => {
     useDocumentTitle('Lore');
@@ -18,12 +20,11 @@ const LoreDetails = () => {
     const navigate = useNavigate();
 
     const [isOpenPagination, setIsOpenPagination] = useState(false);
-    const [isZoom, setIsZoom] = useState(false);
+    const [isZoom, setIsZoom] = useState(window.innerWidth <= 768);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [pageNumber, setPageNumber] = useState(1);
     const [heightPage, setHeightPage] = useState(0);
     const imageRefs = useRef([]);
-
 
     const imagePages = Array(21)
         .fill()
@@ -38,20 +39,20 @@ const LoreDetails = () => {
             const scrollTop = document.documentElement.scrollTop;
 
             const totalPages = Math.floor(scrollHeight / heightPage);
-            const currentPage = Math.ceil((scrollTop + clientHeight) / heightPage);
-
+            const currentPage = Math.floor((scrollTop + clientHeight) / heightPage);
             setPageNumber(currentPage);
-            console.log({
-                scrollHeight: scrollHeight,
-                heightPage: heightPage,
-                currentPage: currentPage
-            });
+            // console.log({
+            //     scrollHeight: scrollHeight,
+            //     heightPage: heightPage,
+            //     currentPage: currentPage
+            // });
         };
 
         const updateHeight = () => {
             if (imageRefs.current[0]) {
                 setHeightPage(imageRefs.current[0].offsetHeight);
             }
+            setIsZoom(window.innerWidth <= 768);
         }
 
         window.addEventListener('scroll', handleScroll);
@@ -63,7 +64,7 @@ const LoreDetails = () => {
 
             window.removeEventListener('resize', updateHeight);
         }
-    }, [heightPage]);
+    }, [heightPage, pageNumber]);
 
     const scrollToPage = (pageIndex) => {
         if (imageRefs.current[pageIndex]) {
@@ -120,132 +121,185 @@ const LoreDetails = () => {
             </Styled.StoryContainer>
 
             <Styled.NavigationContainer vertical>
-                <Styled.PageListWrapper
-                    vertical
-                    style={{ transform: isOpenPagination ? 'translateY(0%)' : 'translateY(150%)' }}
-                >
-                    <Styled.PageListCarousel dots={false} arrows>
-                        <Styled.PageListContainer>
-                            <Flex>
-                                {imagePages.slice(0, 12).map((page, index) => (
-                                    <Styled.PageContainer
-                                        vertical
-                                        key={index}
-                                        align='center'
-                                    >
-                                        <Image
-                                            src={page}
-                                            alt={`page-${index}`}
-                                            preview={false}
-                                            width={100}
-                                            onClick={() => scrollToPage(index)}
-                                        />
-                                        <Text>{index + 1}</Text>
-                                    </Styled.PageContainer>
-                                ))}
-                            </Flex>
-                        </Styled.PageListContainer>
+                <Col xl={24} lg={24} md={0} sm={0} xs={0}>
+                    <Styled.PageListWrapper
+                        vertical
+                        style={{ transform: isOpenPagination ? 'translateY(0%)' : 'translateY(150%)' }}
+                    >
+                        <Styled.PageListCarousel dots={false} arrows>
+                            <Styled.PageListContainer>
+                                <Flex gap={12}>
+                                    {imagePages.slice(0, 12).map((page, index) => (
+                                        <Styled.PageContainer
+                                            vertical
+                                            key={index}
+                                            align='center'
+                                        >
+                                            <Image
+                                                src={page}
+                                                alt={`page-${index}`}
+                                                preview={false}
+                                                onClick={() => scrollToPage(index)}
+                                            />
+                                            <Text>{index + 1}</Text>
+                                        </Styled.PageContainer>
+                                    ))}
+                                </Flex>
+                            </Styled.PageListContainer>
 
-                        <Styled.PageListContainer>
-                            <Flex>
-                                {imagePages.slice(9, 21).map((page, index) => (
-                                    <Styled.PageContainer
-                                        vertical
-                                        key={index}
-                                        align='center'
-                                    >
-                                        <Image
-                                            src={page}
-                                            alt={`page-${index + 10}`}
-                                            preview={false}
-                                            width={100}
-                                            onClick={() => scrollToPage(index + 9)}
-                                        />
-                                        <Text>{index + 10}</Text>
-                                    </Styled.PageContainer>
-                                ))}
-                            </Flex>
-                        </Styled.PageListContainer>
-                    </Styled.PageListCarousel>
-                </Styled.PageListWrapper>
+                            <Styled.PageListContainer>
+                                <Flex gap={12}>
+                                    {imagePages.slice(9, 21).map((page, index) => (
+                                        <Styled.PageContainer
+                                            vertical
+                                            key={index}
+                                            align='center'
+                                        >
+                                            <Image
+                                                src={page}
+                                                alt={`page-${index + 10}`}
+                                                preview={false}
+                                                onClick={() => scrollToPage(index + 9)}
+                                            />
+                                            <Text>{index + 10}</Text>
+                                        </Styled.PageContainer>
+                                    ))}
+                                </Flex>
+                            </Styled.PageListContainer>
+                        </Styled.PageListCarousel>
+                    </Styled.PageListWrapper>
+                </Col>
+
+                <Col xxl={0} xl={0} lg={0} md={24}>
+                    <Styled.MobilePageListWrapper 
+                        vertical
+                        style={{ transform: isOpenPagination ? 'translateX(0%)' : 'translateX(150%)' }}
+                    >
+                        <Styled.MobilePageListTitle justify='space-between' align='center'>
+                            <Title level={3}>Jump to page</Title>
+
+                            <IoClose onClick={handleClosedPagination}/>
+                        </Styled.MobilePageListTitle>
+
+                        <Flex wrap justify='space-between'>
+                            {imagePages.map((page, index) => (
+                                <Styled.PageContainer
+                                    vertical
+                                    key={index}
+                                    align='center'
+                                >
+                                    <Image
+                                        src={page}
+                                        alt={`page-${index + 1}`}
+                                        preview={false}
+                                        onClick={() => scrollToPage(index)}
+                                        style={{
+                                            opacity: pageNumber === index? '1' : '0.5'
+                                        }}
+                                    />
+                                    <Text>{index + 1}</Text>
+                                </Styled.PageContainer>
+                            ))}
+                        </Flex>
+                    </Styled.MobilePageListWrapper>
+                </Col>
 
                 <Styled.NavigationBar justify='space-between' align='center'>
-                    <Styled.NavigationLeft align='center' gap={60}>
+                    <Styled.NavigationLeft align='center'>
                         <Styled.BackButton
                             type='link'
                             onClick={() => navigate(config.routes.lore)}
                         >
                             <Image src={ArrowLeft} alt='arrow-left' preview={false} />
-                            Back to lore
+                            <Col xl={4} lg={0} md={0} sm={0} xs={0}>
+                                Back to lore
+                            </Col>
                         </Styled.BackButton>
                         <Text>Issue #1 - The Forgotten Temple</Text>
                     </Styled.NavigationLeft>
 
-                    <Styled.NavigationRight align='center' gap={100}>
-                        <Styled.PagePaginationContainer gap={12} align='center'>
-                            <Text>Page</Text>
+                    <Col lg={10} md={0} sm={0} xs={0}>
+                        <Styled.NavigationRight align='center'>
+                            <Styled.PagePaginationContainer gap={12} align='center'>
+                                <Text>Page</Text>
 
-                            {
-                                isOpenPagination ?
-                                    <Styled.PagePaginationButton
-                                        gap={4}
-                                        align='center'
-                                        justify='space-between'
-                                        onClick={handleClosedPagination}
-                                    >
-                                        <Text>{pageNumber}</Text>
-                                        <Image
-                                            src={ArrowDown}
-                                            alt='arrow-down'
-                                            preview={false}
-                                            width={24}
-                                            height={24}
-                                            style={{ transform: 'rotateZ(180deg)' }}
-                                        />
-                                    </Styled.PagePaginationButton> :
-                                    <Styled.PagePaginationButton
-                                        gap={4}
-                                        align='center'
-                                        justify='space-between'
-                                        onClick={handleOpenPagination}
-                                    >
-                                        <Text>{pageNumber}</Text>
-                                        <Image
-                                            src={ArrowDown}
-                                            alt='arrow-down'
-                                            preview={false}
-                                            width={24}
-                                            height={24}
-                                            style={{ transform: 'rotateZ(0)' }}
-                                        />
-                                    </Styled.PagePaginationButton>
-                            }
+                                {
+                                    isOpenPagination ?
+                                        <Styled.PagePaginationButton
+                                            gap={4}
+                                            align='center'
+                                            justify='space-between'
+                                            onClick={handleClosedPagination}
+                                        >
+                                            <Text>{pageNumber}</Text>
+                                            <Image
+                                                src={ArrowDown}
+                                                alt='arrow-down'
+                                                preview={false}
+                                                width={24}
+                                                height={24}
+                                                style={{ transform: 'rotateZ(180deg)' }}
+                                            />
+                                        </Styled.PagePaginationButton> :
+                                        <Styled.PagePaginationButton
+                                            gap={4}
+                                            align='center'
+                                            justify='space-between'
+                                            onClick={handleOpenPagination}
+                                        >
+                                            <Text>{pageNumber}</Text>
+                                            <Image
+                                                src={ArrowDown}
+                                                alt='arrow-down'
+                                                preview={false}
+                                                width={24}
+                                                height={24}
+                                                style={{ transform: 'rotateZ(0)' }}
+                                            />
+                                        </Styled.PagePaginationButton>
+                                }
 
-                            <Text>{`of ${imagePages.length}`}</Text>
-                        </Styled.PagePaginationContainer>
+                                <Text>{`of ${imagePages.length}`}</Text>
+                            </Styled.PagePaginationContainer>
 
-                        <Styled.ZoomContainer align='center' gap={12}>
-                            {isZoom ?
-                                <Button onClick={handleZoomIn}>
-                                    <TbZoomOut />
-                                </Button> :
-                                <Button onClick={handleZoomOut}>
-                                    <TbZoomIn />
-                                </Button>}
-
-                            <Divider type='vertical' />
-
-                            {
-                                isFullScreen ?
-                                    <Button onClick={handClosedFullScreen}>
-                                        <AiOutlineFullscreenExit />
+                            <Styled.ZoomContainer align='center' gap={12}>
+                                {isZoom ?
+                                    <Button onClick={handleZoomIn}>
+                                        <TbZoomOut />
                                     </Button> :
-                                    <Button onClick={handleOpenFullScreen}>
-                                        <GoScreenFull />
+                                    <Button onClick={handleZoomOut}>
+                                        <TbZoomIn />
+                                    </Button>}
+
+                                <Divider type='vertical' />
+
+                                {
+                                    isFullScreen ?
+                                        <Button onClick={handClosedFullScreen}>
+                                            <AiOutlineFullscreenExit />
+                                        </Button> :
+                                        <Button onClick={handleOpenFullScreen}>
+                                            <GoScreenFull />
+                                        </Button>
+                                }
+                            </Styled.ZoomContainer>
+                        </Styled.NavigationRight>
+                    </Col>
+
+                    <Col xxl={0} xl={0} lg={0} md={2}>
+                        <Styled.NavigationRight>
+                            <Styled.PagePaginationButton>
+                                {isOpenPagination ?
+                                    <Button onClick={handleClosedPagination}>
+                                        <PiBookOpenText />
+                                    </Button> :
+                                    <Button onClick={handleOpenPagination}>
+                                        <PiBookOpenText />
                                     </Button>
-                            }
-                        </Styled.ZoomContainer>
-                    </Styled.NavigationRight>
+                                }
+                            </Styled.PagePaginationButton>
+                        </Styled.NavigationRight>
+                    </Col>
                 </Styled.NavigationBar>
             </Styled.NavigationContainer>
         </Styled.StoryWrapper>

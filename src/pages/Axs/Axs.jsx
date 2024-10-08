@@ -1,5 +1,5 @@
 import * as Styled from './Axs.styled';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AxsData } from './Axs.data';
 import { Button, Col, Image, Row, Typography } from 'antd';
 import StakingDiagram from '../../assets/axs/staking-diagram.png';
@@ -11,6 +11,8 @@ const { Title, Text } = Typography;
 
 const Axs = () => {
     useDocumentTitle('Axie Infinity Shards (AXS)');
+
+    const navigate = useNavigate();
     
     return (
         <Styled.AxsWrapper>
@@ -70,7 +72,7 @@ const Axs = () => {
                                         to improve Axie Infinity. AXS stakers will
                                         eventually direct usage of The Community Treasury.
                                     </Text>
-                                    <Button>
+                                    <Button onClick={() => window.open('https://stake.axieinfinity.com/')}>
                                         Stake AXS
                                     </Button>
                                 </Col>

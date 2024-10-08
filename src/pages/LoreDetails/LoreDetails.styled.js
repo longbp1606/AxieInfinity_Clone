@@ -17,6 +17,11 @@ export const StoryContainer = styled(Flex)`
     height: auto;
     margin: auto;
     transition: width 0.2s;
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        width: 100%;
+        padding: 0px 16px;
+    }
 `;
 
 export const PageHolder = styled.div`
@@ -41,6 +46,32 @@ export const PageListContainer = styled.div`
     width: 100%;
 `;
 
+export const MobilePageListWrapper = styled(Flex)`
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(6px);
+    padding: 20px;
+    transition: transform 0.3s ease-out;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    overflow: auto;
+    padding-bottom: 50px;
+    gap: 20px;
+`;
+
+export const MobilePageListTitle = styled(Flex)`
+    width: 100%;
+
+    & h3.ant-typography {
+        color: white;
+    }
+
+    & svg {
+        color: white;
+        font-size: 30px;
+    }
+`;
+
 export const PageListCarousel = styled(Carousel)`
     & .slick-slide {
         display: flex
@@ -52,12 +83,38 @@ export const PageContainer = styled(Flex)`
 
     & .ant-image {
         cursor: pointer;
+        width: 100%;
     }
 
     & span.ant-typography {
         color: ${theme.colors.white};
         text-align: center;
         margin-top: 10px;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        width: 50%;
+
+        & .ant-image {
+            cursor: pointer;
+            width: 100%;
+        }
+    }
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        width: 48%;
+        gap: 10px;
+
+        & .ant-image {
+            width: 100%;
+        }
+
+        & span.ant-typography {
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
     }
 `;
 
@@ -72,11 +129,32 @@ export const NavigationBar = styled(Flex)`
         font-weight: 400;
         color: ${theme.colors.textLore};
     }
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        padding: 16px 40px;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+        padding: 16px 10px;
+    }
 `;
 
 export const NavigationLeft = styled(Flex)`
+    gap: 60px;
+
     & span.ant-typography {
         text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        gap: 10px;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+        & span.ant-typography {
+            font-size: 15px;
+        }
     }
 `;
 
@@ -94,9 +172,19 @@ export const BackButton = styled(Button)`
     &:hover {
         transform: scale(1.1);
     }
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        padding: 0;
+    }
 `;
 
-export const NavigationRight = styled(Flex)``;
+export const NavigationRight = styled(Flex)`
+    gap: 40px;
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        gap: 40px;
+    }
+`;
 
 export const PagePaginationContainer = styled(Flex)``;
 
@@ -112,6 +200,47 @@ export const PagePaginationButton = styled(Flex)`
         font-size: 16px;
         font-weight: 500;
         color: ${theme.colors.white};
+    }
+
+    ${({ theme }) => theme.breakpoints.down('lg')} {
+        border: none;
+
+        & .ant-btn-variant-outlined {
+            background: transparent;
+            border: none;
+
+            &:not(:disabled):not(.ant-btn-disabled) {
+                &:hover {
+                    background: rgba(240, 220, 192, 0.2);
+                    color: transparent;
+                    border: none;
+                }
+
+                &:active {
+                    background: rgba(240, 220, 192, 0.2);
+                    border: none;
+                    color: transparent;
+                }
+            }
+
+            &:focus-visible {
+                outline: none;
+                background: rgba(240, 220, 192, 0.2);
+                outline-offset: 0px;
+                transition: none;
+            }
+        }
+
+        & svg {
+            font-size: 24px;
+            color: ${theme.colors.textLore};
+        }
+
+        & .ant-divider-vertical {
+            border-inline-start: 1px solid rgb(78, 79, 91);
+            width: 2px;
+            height: 30px;
+        }
     }
 `;
 

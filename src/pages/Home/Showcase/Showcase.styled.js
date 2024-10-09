@@ -1,29 +1,46 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import WoodenBackground from '../../../assets/backgroud/backgroud-4.jpg';
 import News1BG from '../../../assets/table/table_2.png';
 import News2BG from '../../../assets/table/table_3.png';
 import News3BG from '../../../assets/table/table_4.png';
 import ShowcaseMarketWoodDivider from '../../../assets/showcase/wood-divider-dark.png';
+import { Button, Flex } from "antd";
+import { theme } from "../../../themes";
+import ButtonDark from '../../../assets/button/dark-188.png';
+import ButtonLight from '../../../assets/button/light-188.png';
 
 
 export const ShowcaseWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #f8f8f8;
-  padding: 20px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0px auto;
+`;
+
+export const ShowcaseContainer = styled(Flex)`
+  flex-direction: column;
+  position: relative;
+`;
+
+export const ShowcaseGrid = styled.div`
+  display: grid;
+  grid-template-columns: 840fr 440fr;
+  gap: 16px;
+  padding-top: 72px;
+`;
+
+export const TelevisionWrapper = styled(Flex)`
+  max-width: 846px;
+  width: 100%;
+  margin: 0px auto;
 `;
 
 export const TelevisionContainer = styled.div`
   position: relative;
   width: 100%; 
-  max-width: 800px; 
-  height: auto; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
 `;
+
 
 export const TelevisionFrame = styled.img`
   position: relative;
@@ -32,16 +49,24 @@ export const TelevisionFrame = styled.img`
   z-index: 2; /* Make the television frame on top */
 `;
 
-export const ThumbnailImage = styled.img`
-  position: absolute;
-  top: 5%; /* Adjust to fit the screen area */
-  left: 9%;
-  
-  width: 83%; /* Ensure the thumbnail fits the television screen */
-  height: 70%; 
-  object-fit: cover; /* Maintain aspect ratio and fill the area */
-  z-index: 1; /* Make sure the thumbnail is behind the television frame */
+export const ThumbnailContainer = styled.div`
+  z-index: 2;
+  border-radius: 40px;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
 `;
+
+export const ScreenContainer = styled(Flex)`
+  position: absolute;
+  top: 5.5%;
+  left: 8.5%;
+  width: 83%;
+`;
+
+export const ThumbnailImage = styled.img``;
 
 export const VideoContainer = styled.div`
   position: absolute;
@@ -59,30 +84,48 @@ export const VideoContainer = styled.div`
 
 export const PlayButton = styled.button`
   position: absolute;
-  top: 30%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 50%;
   padding: 5px; /* Reduce padding */
-  width: 20px; /* Set a fixed width */
-  height: 20px; /* Set a fixed height */
+  width: 14.2%; /* Set a fixed width */
   cursor: pointer;
   z-index: 3; /* Ensure the play button is above the television and thumbnail */
-  font-size: 16px; /* Adjust font size if text is used, or remove this if just an icon */
+  background: transparent;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 8px 20px);
+
+  & img {
+    width: 100%;
+  }
 `;
 
-
-export const GameInfo = styled.div`
-  width: 60%;
-  padding: 20px;
-  text-align: center;
+export const GameInfo = styled(Flex)`
+  gap: 24px;
+  padding-top: 12%;
 `;
 
-export const GameTitle = styled.h1`
-  font-size: 2.5em;
-  margin-bottom: 20px;
+export const GameLogoContainer = styled(Flex)`
+  & .ant-image {
+    width: 160px;
+  }
+`;
+
+export const GameIntroduction = styled(Flex)`
+  & h2.ant-typography {
+    font-family: ${theme.fonts.rowdies};
+    color: ${theme.colors.textLore};
+    text-transform: uppercase;
+    font-size: 4.5rem;
+    font-weight: 600;
+  }
+
+  & span.ant-typography {
+    color: ${theme.colors.textLore};
+    font-size: 2rem;
+    font-weight: 600;
+  }
 `;
 
 export const GameDescription = styled.p`
@@ -90,18 +133,32 @@ export const GameDescription = styled.p`
   color: #333;
 `;
 
-export const Button = styled.button`
-  background-color: #b85d2e;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-right: 10px;
+export const ButtonContainer = styled(Flex)`
+  gap: 20px;
+`;
 
-  &:hover {
-    background-color: #9b4825;
-  }
+export const ButtonTemplate = css`
+  width: 188px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-family: ${theme.fonts.rowdies};
+  font-size: 2.25rem;
+  color: ${theme.colors.textForWoodBackground};
+  transition: transform 0.2s;
+  background: transparent;
+  border: none;
+`;
+
+export const PlayNowButton = styled(Button)`
+  ${ButtonTemplate}
+  background-image: url(${ButtonDark});
+`;
+
+export const WatchTrailerButton = styled(Button)`
+  ${ButtonTemplate}
+  background-image: url(${ButtonLight});
 `;
 
 export const Divider = styled.img`
@@ -116,9 +173,41 @@ export const NotesContainer = styled.div`
   margin-top: 20px;
 `;
 
+export const NoteImageTemplate = css`
+  position: absolute;
+  z-index: 10;
+`;
+
 export const NoteImage = styled.img`
-  width: 100px;
-  margin: 10px;
+  ${NoteImageTemplate}
+  top: 0px;
+  left: 0px;
+  transform: translateY(-20%);
+  max-width: 146px;
+`;
+
+export const NoteImage2 = styled.img`
+  ${NoteImageTemplate}
+  top: 0px;
+  right: 0px;
+  transform: translateY(-20%);
+  max-width: 110px;
+`;
+
+export const NoteImage3 = styled.img`
+  ${NoteImageTemplate}
+  transform: translate(86%, 32%);
+  bottom: 0px;
+  right: 0px;
+  max-width: 192px;
+`;
+
+export const NoteImage4 = styled.img`
+  ${NoteImageTemplate}
+  transform: translateY(-10%);
+  bottom: 0px;
+  right: 0px;
+  max-width: 129px;
 `;
 
 // Latest News Section

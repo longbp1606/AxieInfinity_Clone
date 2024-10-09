@@ -11,7 +11,7 @@ const StyledBackgroud1 = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  transform: translateY(${(props) => props.scrollY * -0.5}px);
+  
 `;
 
 const StyledBackgroud2 = styled.div`

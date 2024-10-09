@@ -27,27 +27,13 @@ import { Image, Typography } from 'antd';
 const { Title, Text } = Typography;
 
 const Showcase = () => {
-    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // State for the video modal
-    const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false); // State for the trailer modal
+    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+    const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
 
-
-    const handlePlayVideo = () => {
-        setIsVideoModalOpen(true); // Open the video modal
-    };
-
-    const handleWatchTrailer = () => {
-        setIsTrailerModalOpen(true); // Open the trailer modal
-    };
-
-    const closeVideoModal = () => {
-        setIsVideoModalOpen(false); // Close the video modal
-    };
-
-    const closeTrailerModal = () => {
-        setIsTrailerModalOpen(false); // Close the trailer modal
-    };
-
-
+    const handlePlayVideo = () => setIsVideoModalOpen(true);
+    const handleWatchTrailer = () => setIsTrailerModalOpen(true);
+    const closeVideoModal = () => setIsVideoModalOpen(false);
+    const closeTrailerModal = () => setIsTrailerModalOpen(false);
 
     // Latest News Function 
     const [ref1, inView1] = useInView({ threshold: 0.1 });
@@ -110,22 +96,8 @@ const Showcase = () => {
                     </Styled.ShowcaseContainer>
                 </Styled.ShowcaseWrapper>
 
-                {/* Modal for the video */}
-                <Modal
-                    isOpen={isVideoModalOpen}
-                    onClose={closeVideoModal}
-                    videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Use the embed link
-                />
-
-                {/* Modal for the trailer */}
-                <Modal
-                    isOpen={isTrailerModalOpen}
-                    onClose={closeTrailerModal}
-                    videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Change to the appropriate trailer video link
-                />
-
-
-
+            <Modal isOpen={isVideoModalOpen} onClose={closeVideoModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
+            <Modal isOpen={isTrailerModalOpen} onClose={closeTrailerModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
 
                 {/* Latest News Section */}
                 <Styled.LatestNewsContainer>

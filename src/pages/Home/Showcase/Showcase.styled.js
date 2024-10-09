@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import WoodenBackground from '../../../assets/backgroud/backgroud-4.jpg';
+import WoodenBackground from '../../../assets/backgroud/background-4.jpg';
 import News1BG from '../../../assets/table/table_2.png';
 import News2BG from '../../../assets/table/table_3.png';
 import News3BG from '../../../assets/table/table_4.png';
@@ -43,10 +43,10 @@ export const TelevisionContainer = styled.div`
 
 
 export const TelevisionFrame = styled.img`
-  position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 2; /* Make the television frame on top */
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 2;
 `;
 
 export const ThumbnailContainer = styled.div`
@@ -69,17 +69,17 @@ export const ScreenContainer = styled(Flex)`
 export const ThumbnailImage = styled.img``;
 
 export const VideoContainer = styled.div`
-  position: absolute;
-  top: 10%; /* Adjust to fit the screen area */
-  left: 10%;
-  width: 80%;
-  height: 80%; /* Match the size of the thumbnail */
-  z-index: 1; /* Ensure the video is behind the television frame */
-  iframe {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Make sure the video fits the television screen */
-  }
+    position: absolute;
+    top: 10%; 
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    z-index: 1; 
+    iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 `;
 
 export const PlayButton = styled.button`
@@ -129,8 +129,8 @@ export const GameIntroduction = styled(Flex)`
 `;
 
 export const GameDescription = styled.p`
-  font-size: 1.2em;
-  color: #333;
+    font-size: 1.2em;
+    color: #333;
 `;
 
 export const ButtonContainer = styled(Flex)`
@@ -162,15 +162,16 @@ export const WatchTrailerButton = styled(Button)`
 `;
 
 export const Divider = styled.img`
-  width: 100%;
-  margin: 10px 0;
+    width: 100%;
+    margin: 10px 0;
 `;
 
 export const NotesContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
 `;
 
 export const NoteImageTemplate = css`
@@ -208,6 +209,33 @@ export const NoteImage4 = styled.img`
   bottom: 0px;
   right: 0px;
   max-width: 129px;
+`;
+
+export const Description = styled.p`
+    font-size: 16px; 
+    color: white; 
+    margin: 0; 
+`;
+
+export const HeaderInfo = styled.h2`
+    margin: 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 2.5rem;
+    color: rgb(240, 220, 192);
+    font-family: 'Rowdies', serif;
+    line-height: 1.2; 
+`;
+
+export const StyleDescription = styled.p`
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    text-align: left;
+    font-size: 16px;
+    color: rgb(240, 220, 192);
+    font-weight: 400;
+    line-height: 24px;
 `;
 
 // Latest News Section
@@ -505,3 +533,4 @@ export const ShowcaseMarketDivider = styled.div`
 `;
 
 // End Latest News Section
+

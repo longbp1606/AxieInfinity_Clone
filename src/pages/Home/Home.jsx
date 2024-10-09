@@ -5,6 +5,8 @@ import Marketplace from "./Marketplace/Marketplace";
 import Competitive from "./Competitive/Competitive";
 import EmbraceInfinity from "./EmbraceInfinity/EmbraceInfinity";
 import { useDocumentTitle } from "../../hooks";
+import LastestNews from "./LastestNews";
+import { WoodDividerLight } from "./Home.styled";
 
 const Home = () => {
   useDocumentTitle(
@@ -14,7 +16,11 @@ const Home = () => {
   return (
     <>
       <Introduction />
+        
+      <WoodDividerLight />
       <Showcase />
+      <LastestNews />
+    
       <Marketplace />
       <Competitive />
       <EmbraceInfinity />

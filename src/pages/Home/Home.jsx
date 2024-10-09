@@ -19,7 +19,6 @@ const Home = () => {
         
       <WoodDividerLight />
       <Showcase />
-      <LastestNews />
     
       <Marketplace />
       <Competitive />

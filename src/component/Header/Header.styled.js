@@ -125,6 +125,10 @@ export const MoreContainer = styled.div`
         transition: transform 0.25s cubic-bezier(0.4, 0, 0, 1.02);
     }
 
+    & p{
+        cursor: pointer;
+    }
+
     &:hover {
         color: rgb(255,255,255);
         

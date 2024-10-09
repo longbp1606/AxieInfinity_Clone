@@ -2,6 +2,11 @@ import styled from "styled-components";
 import background4 from '../../../assets/backgroud/background-4.jpg';
 import button from '../../../assets/button/button.png';
 import button2 from '../../../assets/button/button_2.png';
+import WoodenBackground from '../../../assets/backgroud/backgroud-4.jpg';
+import News1BG from '../../../assets/table/table_2.png';
+import News2BG from '../../../assets/table/table_3.png';
+import News3BG from '../../../assets/table/table_4.png';
+import ShowcaseMarketWoodDivider from '../../../assets/showcase/wood-divider-dark.png';
 
 export const ShowcaseWrapper = styled.div`
   background-image: url(${background4});
@@ -219,15 +224,8 @@ export const FlexSection = styled.div`
 `;
 
 export const Header = styled.h2`
-    margin: 0px;
-    font-weight: 300;
-    text-transform: uppercase;
-    text-align: left;
-    font-size: 4.5rem;
-    font-weight: 400;
-    color: rgb(240, 220, 192);
-    font-family: Rowdies, serif;
-    line-height: 1.2;
+  width: 100px;
+  margin: 10px;
 `;
 
 export const Description = styled.p`
@@ -334,4 +332,300 @@ export const WatchTrailerButton = styled.button`
         transform: scale(1.05);
     }
 `;
+
+// Latest News Section
+export const ShowcaseWoodenBackground = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    background-image: url(${WoodenBackground});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    padding-bottom: 80px;
+
+    @media (max-width: 1280px) {
+        gap: 70px;
+    }
+`;
+
+export const LatestNewsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0px auto;
+`;
+
+export const LatestNewsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    & h2{
+    margin: 0px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 5rem;
+    color: rgb(240, 220, 192);
+    font-family: Rowdies, serif;
+    line-height: 1.2;
+    font-weight: 500;
+
+    @media (max-width: 1280px) {
+        padding-top: 28px;
+        -webkit-box-align: center;
+        align-items: center;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+    }
+`;
+
+export const NewsContainer = styled.div`
+    display: flex;
+    flex-flow: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    gap: 16px;
+
+    @media (max-width: 1280px) {
+        padding: 0px 20px;
+    }
+`;
+
+
+export const NewsWrapper = styled.div`
+  position: relative;
+  max-width: 412px;
+  width: calc(33.3333% - 5.33333px);
+  aspect-ratio: 412 / 440;
+  min-width: 320px;
+  
+  @media (max-width: 1280px) {
+    width: calc(50% - 8px);
+  }
+`;
+
+export const News1Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(${News1BG});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 8px 10px);
+`;
+
+export const News1Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 13px;
+    padding: 20% 9%;
+    transform: rotate(3deg);
+
+    & a{
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    }
+`;
+
+export const News1Img = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56f3ada4-f88d-48ea-beb4-19dc2c773f6f_2400x1350.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    width: 100%;
+    aspect-ratio: 1456 / 844;
+`;
+
+export const News1Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & p:first-child {
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(112, 53, 25);
+    font-weight: 800;
+    line-height: 1.4;
+    }
+
+    & p:last-child{
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(112, 53, 25);
+    font-weight: 550;
+    line-height: 1.5;
+    }
+`;
+
+export const News2Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(${News2BG});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 8px 10px);
+`;
+
+export const News2Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 13px;
+    padding: 20% 9%;
+    transform: rotate(0deg);
+
+    & a{
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    }
+`;
+
+export const News2Img = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed3b344e-da13-42ab-b24e-610f267c7df3_2400x1350.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    width: 100%;
+    aspect-ratio: 1456 / 844;
+`;
+
+export const News2Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & p:first-child {
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(112, 53, 25);
+    font-weight: 800;
+    line-height: 1.4;
+    }
+
+    & p:last-child{
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(112, 53, 25);
+    font-weight: 550;
+    line-height: 1.5;
+    }
+`;
+
+export const News3Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url(${News3BG});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 8px 10px);
+`;
+
+export const News3Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 13px;
+    padding: 20% 9%;
+    transform: rotate(-3deg);
+
+    & a{
+    margin: 0px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    }
+`;
+
+export const News3Img = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F48d504ce-2e11-4283-b172-b85ad3665b19_2400x1350.png);    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 20px;
+    width: 100%;
+    aspect-ratio: 1456 / 844;
+`;
+
+export const News3Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    & p:first-child {
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(112, 53, 25);
+    font-weight: 800;
+    line-height: 1.4;
+    }
+
+    & p:last-child{
+    margin: 0px;
+    font-family: "Roboto Slab", serif;
+    font-size: 2rem;
+    text-align: center;
+    color: rgb(112, 53, 25);
+    font-weight: 550;
+    line-height: 1.5;
+    }
+`;
+
+export const ShowcaseMarketDivider = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-image: url(${ShowcaseMarketWoodDivider});
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: center center;
+    height: 56px;
+    width: 100%;
+    z-index: 2;
+
+`;
+
+// End Latest News Section
 

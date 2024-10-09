@@ -16,9 +16,9 @@ const Home = () => {
   return (
     <>
       <Introduction />
-      
+        
       <WoodDividerLight />
-      {/* <Showcase /> */}
+      <Showcase />
       <LastestNews />
     
       <Marketplace />

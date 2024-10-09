@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-    ShowcaseWrapper,
     GameInfo,
     GameTitle,
     GameDescription,
@@ -14,18 +13,21 @@ import {
     VideoContainer
 } from './Showcase.styled';
 import Modal from '../../../component/Modal';
-
-// Correct relative paths based on your folder structure
 import playButton from '../../../assets/showcase/play-button.png';
 import television from '../../../assets/showcase/television.png';
 import thumbnail from '../../../assets/showcase/thumbnail.jpg';
 import note1 from '../../../assets/showcase/note-1.png';
 import note2 from '../../../assets/showcase/note-2.png';
 import note3 from '../../../assets/showcase/note-3.png';
+import { useInView } from 'react-intersection-observer';
+import * as Styled from './Showcase.styled';
+import LastestNews from "../LastestNews";
+
 
 const Showcase = () => {
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // State for the video modal
     const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false); // State for the trailer modal
+
 
     const handlePlayVideo = () => {
         setIsVideoModalOpen(true); // Open the video modal
@@ -43,53 +45,150 @@ const Showcase = () => {
         setIsTrailerModalOpen(false); // Close the trailer modal
     };
 
+
+
+    // Latest News Function 
+    const [ref1, inView1] = useInView({ threshold: 0.1 });
+    const [ref2, inView2] = useInView({ threshold: 0.1 });
+    const [ref3, inView3] = useInView({ threshold: 0.1 });
+
     return (
-        <ShowcaseWrapper>
-            {/* Television with thumbnail and play button */}
-            <TelevisionContainer>
-                <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
-                <PlayButton onClick={handlePlayVideo}>
-                    <img src={playButton} alt="Play Button" />
-                </PlayButton>
-                <TelevisionFrame src={television} alt="Television Frame" />
-            </TelevisionContainer>
+        <div>
+            <Styled.ShowcaseWoodenBackground>
 
-            {/* Game information section */}
-            <GameInfo>
-                <GameTitle>AXIE INFINITY ORIGINS</GameTitle>
-                <GameDescription>
-                    Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
-                </GameDescription>
-                <div>
-                    <Button onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
-                        Play now
-                    </Button>
-                    <Button onClick={handleWatchTrailer}>Watch trailer</Button>
-                </div>
-            </GameInfo>
+                {/* Television with thumbnail and play button */}
+                <TelevisionContainer>
+                    <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
+                    <PlayButton onClick={handlePlayVideo}>
+                        <img src={playButton} alt="Play Button" />
+                    </PlayButton>
+                    <TelevisionFrame src={television} alt="Television Frame" />
+                </TelevisionContainer>
 
-            {/* Notes section */}
-            <NotesContainer>
-                <NoteImage src={note1} alt="Note 1" />
-                <NoteImage src={note2} alt="Note 2" />
-                <NoteImage src={note3} alt="Note 3" />
-            </NotesContainer>
+                {/* Game information section */}
+                <GameInfo>
+                    <GameTitle>AXIE INFINITY ORIGINS</GameTitle>
+                    <GameDescription>
+                        Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
+                    </GameDescription>
+                    <div>
+                        <Button onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
+                            Play now
+                        </Button>
+                        <Button onClick={handleWatchTrailer}>Watch trailer</Button>
+                    </div>
+                </GameInfo>
 
-            {/* Modal for the video */}
-            <Modal
-                isOpen={isVideoModalOpen}
-                onClose={closeVideoModal}
-                videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Use the embed link
-            />
+                {/* Notes section */}
+                <NotesContainer>
+                    <NoteImage src={note1} alt="Note 1" />
+                    <NoteImage src={note2} alt="Note 2" />
+                    <NoteImage src={note3} alt="Note 3" />
+                </NotesContainer>
 
-            {/* Modal for the trailer */}
-            <Modal
-                isOpen={isTrailerModalOpen}
-                onClose={closeTrailerModal}
-                videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Change to the appropriate trailer video link
-            />
-        </ShowcaseWrapper>
-    )
-}
+                {/* Modal for the video */}
+                <Modal
+                    isOpen={isVideoModalOpen}
+                    onClose={closeVideoModal}
+                    videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Use the embed link
+                />
 
-export default Showcase
+                {/* Modal for the trailer */}
+                <Modal
+                    isOpen={isTrailerModalOpen}
+                    onClose={closeTrailerModal}
+                    videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Change to the appropriate trailer video link
+                />
+
+
+
+
+                {/* Latest News Section */}
+                <Styled.LatestNewsContainer>
+                    <Styled.LatestNewsWrapper>
+                        <h2 className="MuiTypography-root MuiTypography-h2 title">Latest News</h2>
+                        <Styled.NewsContainer>
+
+                            {/* News 1 */}
+                            <Styled.NewsWrapper
+                                ref={ref1}
+                                className={`animate__animated ${inView1 ? 'animate__fadeInUp' : ''
+                                    }`}
+                                style={{
+                                    animationDuration: '0.4s',
+                                    opacity: inView1 ? '1' : '0',
+                                }}
+                            >
+                                <a href="https://blog.axieinfinity.com/p/axiepals" target="_blank" rel="noopener noreferrer">
+                                    <Styled.News1Container>
+                                        <Styled.News1Wrapper>
+                                            <Styled.News1Img />
+                                            <Styled.News1Content>
+                                                <p>Welcome to Lunacia, Axie Pals!</p>
+                                                <p>26 Sep, 2024</p>
+                                            </Styled.News1Content>
+                                        </Styled.News1Wrapper>
+                                    </Styled.News1Container>
+                                </a>
+                            </Styled.NewsWrapper>
+
+                            {/* News 2 */}
+                            <Styled.NewsWrapper
+                                ref={ref2}
+                                className={`animate__animated ${inView2 ? 'animate__fadeInUp' : ''
+                                    }`}
+                                style={{
+                                    animationDuration: '0.4s',
+                                    opacity: inView2 ? '1' : '0',
+                                }}
+                            >
+                                <a href="https://blog.axieinfinity.com/p/origins-s10-mystic-era-is-live" target="_blank" rel="noopener noreferrer">
+                                    <Styled.News2Container>
+                                        <Styled.News2Wrapper>
+                                            <Styled.News2Img />
+                                            <Styled.News2Content>
+                                                <p>Origins S10 Mystic Era is Live!</p>
+                                                <p>26 Sep, 2024</p>
+                                            </Styled.News2Content>
+                                        </Styled.News2Wrapper>
+                                    </Styled.News2Container>
+                                </a>
+                            </Styled.NewsWrapper>
+
+                            {/* News 3 */}
+                            <Styled.NewsWrapper
+                                ref={ref3}
+                                className={`animate__animated ${inView3 ? 'animate__fadeInUp' : ''
+                                    }`}
+                                style={{
+                                    animationDuration: '0.4s',
+                                    opacity: inView3 ? '1' : '0',
+                                }}
+                            >
+                                <a href="https://blog.axieinfinity.com/p/axie-infinity-september-town-hall" target="_blank" rel="noopener noreferrer">
+                                    <Styled.News3Container>
+                                        <Styled.News3Wrapper>
+                                            <Styled.News3Img />
+                                            <Styled.News3Content>
+                                                <p>Axie Infinity September Town Hall Recap</p>
+                                                <p>20 Sep, 2024</p>
+                                            </Styled.News3Content>
+                                        </Styled.News3Wrapper>
+                                    </Styled.News3Container>
+                                </a>
+                            </Styled.NewsWrapper>
+
+                        </Styled.NewsContainer>
+                    </Styled.LatestNewsWrapper>
+                </Styled.LatestNewsContainer>
+
+                <LastestNews></LastestNews>
+                {/* End Latest News Section */}
+
+            </Styled.ShowcaseWoodenBackground>
+            <Styled.ShowcaseMarketDivider></Styled.ShowcaseMarketDivider>
+        </div>
+    );
+};
+
+export default Showcase;

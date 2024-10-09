@@ -8,11 +8,11 @@ export const ShowCaseWrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 80px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    padding-bottom: 80px;
-    background-image: url(${Background});
+    // background-repeat: no-repeat;
+    // background-size: cover;
+    // background-position: center center;
+    // padding-bottom: 80px;
+    // background-image: url(${Background});
 `;
 
 export const ShowCaseContainer = styled.div`

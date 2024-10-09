@@ -1,116 +1,173 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import background4 from '../../../assets/backgroud/background-4.jpg';
+import button from '../../../assets/button/button.png';
+import button2 from '../../../assets/button/button_2.png';
 
 export const ShowcaseWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f8f8f8;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${background4});
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    position: relative;
 `;
 
 export const TelevisionContainer = styled.div`
-  position: relative;
-  width: 100%; 
-  max-width: 800px; 
-  height: auto; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-`;
-
-export const TelevisionFrame = styled.img`
-  position: relative;
-  width: 100%;
-  height: auto;
-  z-index: 2; /* Make the television frame on top */
+    position: relative;
+    width: 80%;
+    max-width: 700px;
+    margin-bottom: 20px;
 `;
 
 export const ThumbnailImage = styled.img`
-  position: absolute;
-  top: 5%; /* Adjust to fit the screen area */
-  left: 9%;
-  
-  width: 83%; /* Ensure the thumbnail fits the television screen */
-  height: 70%; 
-  object-fit: cover; /* Maintain aspect ratio and fill the area */
-  z-index: 1; /* Make sure the thumbnail is behind the television frame */
-`;
-
-export const VideoContainer = styled.div`
-  position: absolute;
-  top: 10%; /* Adjust to fit the screen area */
-  left: 10%;
-  width: 80%;
-  height: 80%; /* Match the size of the thumbnail */
-  z-index: 1; /* Ensure the video is behind the television frame */
-  iframe {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Make sure the video fits the television screen */
-  }
+    height: auto;
+    border-radius: 10px;
 `;
 
 export const PlayButton = styled.button`
-  position: absolute;
-  top: 30%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 50%;
-  padding: 5px; /* Reduce padding */
-  width: 20px; /* Set a fixed width */
-  height: 20px; /* Set a fixed height */
-  cursor: pointer;
-  z-index: 3; /* Ensure the play button is above the television and thumbnail */
-  font-size: 16px; /* Adjust font size if text is used, or remove this if just an icon */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+        width: 80px;
+        height: 80px;
+    }
 `;
 
+export const TelevisionFrame = styled.img`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+`;
 
 export const GameInfo = styled.div`
-  width: 60%;
-  padding: 20px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
 `;
 
-export const GameTitle = styled.h1`
-  font-size: 2.5em;
-  margin-bottom: 20px;
+export const LogoContainer = styled.div`
+    margin-bottom: 40px; /* Adjusted for the logo position */
+    display: flex;
+    justify-content: center;
 `;
 
-export const GameDescription = styled.p`
-  font-size: 1.2em;
-  color: #333;
+export const BodyContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `;
 
-export const Button = styled.button`
-  background-color: #b85d2e;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-right: 10px;
-
-  &:hover {
-    background-color: #9b4825;
-  }
+export const TitledSection = styled.div`
+    margin-bottom: 20px;
 `;
 
-export const Divider = styled.img`
-  width: 100%;
-  margin: 10px 0;
+export const Header = styled.h1`
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+`;
+
+export const StyleDescription = styled.p`
+    font-size: 1.2rem;
+    color: #ddd;
+    max-width: 600px;
+    margin-bottom: 30px;
+`;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    gap: 20px;
+`;
+
+export const PlayNowButton = styled.button`
+    padding: 14px 24px;  /* Increased size */
+    font-size: 1.4rem;  /* Increased font size */
+    color: white;
+    background-image: url(${button2});
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
+`;
+
+export const WatchTrailerButton = styled.button`
+    padding: 14px 24px;  /* Increased size */
+    font-size: 1.4rem;  /* Increased font size */
+    color: white;
+    background-image: url(${button});
+    background-size: cover;
+    background-position: center;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: 0.3s;
+    }
 `;
 
 export const NotesContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
 `;
 
 export const NoteImage = styled.img`
-  width: 100px;
-  margin: 10px;
+    max-width: 100px;
+`;
+
+export const Note1 = styled(NoteImage)`
+    position: absolute;
+    top: 10%;  /* Adjusted position */
+    left: 0px;
+    z-index: 8;
+    max-width: 146px;
+`;
+
+export const Note2 = styled(NoteImage)`
+    position: absolute;
+    top: 0px;
+    right: 50%;
+    transform: translateX(50%);
+    z-index: 8;
+    max-width: 146px;
+`;
+
+export const Note3 = styled(NoteImage)`
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 8;
+    max-width: 146px;
 `;

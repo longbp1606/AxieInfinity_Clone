@@ -1,51 +1,34 @@
 import React, { useState } from 'react';
 import {
-    ShowcaseWrapper,
-    GameInfo,
-    GameTitle,
-    GameDescription,
-    Button,
-    PlayButton,
-    NotesContainer,
-    NoteImage,
-    TelevisionContainer,
-    TelevisionFrame,
-    ThumbnailImage,
-    VideoContainer
+    ShowcaseWrapper, GameInfo, NotesContainer, Note1, Note2, Note3, 
+    TelevisionContainer, TelevisionFrame, ThumbnailImage, WatchTrailerButton, 
+    LogoContainer, BodyContainer, ButtonContainer, PlayButton, TitledSection, 
+    Header, StyleDescription, PlayNowButton
 } from './Showcase.styled';
-import Modal from '../../../component/Modal';
 
-// Correct relative paths based on your folder structure
+import Modal from '../../../component/Modal';
 import playButton from '../../../assets/showcase/play-button.png';
 import television from '../../../assets/showcase/television.png';
 import thumbnail from '../../../assets/showcase/thumbnail.jpg';
 import note1 from '../../../assets/showcase/note-1.png';
 import note2 from '../../../assets/showcase/note-2.png';
 import note3 from '../../../assets/showcase/note-3.png';
+import background4 from '../../../assets/backgroud/background-4.jpg';
+import button from '../../../assets/button/button.png';
+import button2 from '../../../assets/button/button_2.png';
+import axielogo from '../../../assets/logo/axie-infinity-logo.png';
 
 const Showcase = () => {
-    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false); // State for the video modal
-    const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false); // State for the trailer modal
+    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+    const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
 
-    const handlePlayVideo = () => {
-        setIsVideoModalOpen(true); // Open the video modal
-    };
-
-    const handleWatchTrailer = () => {
-        setIsTrailerModalOpen(true); // Open the trailer modal
-    };
-
-    const closeVideoModal = () => {
-        setIsVideoModalOpen(false); // Close the video modal
-    };
-
-    const closeTrailerModal = () => {
-        setIsTrailerModalOpen(false); // Close the trailer modal
-    };
+    const handlePlayVideo = () => setIsVideoModalOpen(true);
+    const handleWatchTrailer = () => setIsTrailerModalOpen(true);
+    const closeVideoModal = () => setIsVideoModalOpen(false);
+    const closeTrailerModal = () => setIsTrailerModalOpen(false);
 
     return (
         <ShowcaseWrapper>
-            {/* Television with thumbnail and play button */}
             <TelevisionContainer>
                 <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
                 <PlayButton onClick={handlePlayVideo}>
@@ -54,42 +37,40 @@ const Showcase = () => {
                 <TelevisionFrame src={television} alt="Television Frame" />
             </TelevisionContainer>
 
-            {/* Game information section */}
             <GameInfo>
-                <GameTitle>AXIE INFINITY ORIGINS</GameTitle>
-                <GameDescription>
-                    Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
-                </GameDescription>
-                <div>
-                    <Button onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
-                        Play now
-                    </Button>
-                    <Button onClick={handleWatchTrailer}>Watch trailer</Button>
-                </div>
+                <LogoContainer>
+                    <img src={axielogo} alt="Axie Infinity Logo" style={{ width: '230px' }} />
+                </LogoContainer>
+                <BodyContainer>
+                    <TitledSection>
+                        <Header>More Than A Game</Header>
+                    </TitledSection>
+                    <StyleDescription>
+                        Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
+                    </StyleDescription>
+                    <div>
+                        <ButtonContainer>
+                            <PlayNowButton onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
+                                Play now
+                            </PlayNowButton>
+                            <WatchTrailerButton onClick={handleWatchTrailer}>
+                                Watch trailer
+                            </WatchTrailerButton>
+                        </ButtonContainer>
+                    </div>
+                </BodyContainer>
             </GameInfo>
 
-            {/* Notes section */}
             <NotesContainer>
-                <NoteImage src={note1} alt="Note 1" />
-                <NoteImage src={note2} alt="Note 2" />
-                <NoteImage src={note3} alt="Note 3" />
+                <Note1 src={note1} alt="Note 1" />
+                <Note2 src={note2} alt="Note 2" />
+                <Note3 src={note3} alt="Note 3" />
             </NotesContainer>
 
-            {/* Modal for the video */}
-            <Modal
-                isOpen={isVideoModalOpen}
-                onClose={closeVideoModal}
-                videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Use the embed link
-            />
-
-            {/* Modal for the trailer */}
-            <Modal
-                isOpen={isTrailerModalOpen}
-                onClose={closeTrailerModal}
-                videoSrc="https://www.youtube.com/embed/X2z_YIeettE" // Change to the appropriate trailer video link
-            />
+            <Modal isOpen={isVideoModalOpen} onClose={closeVideoModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
+            <Modal isOpen={isTrailerModalOpen} onClose={closeTrailerModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
         </ShowcaseWrapper>
-    )
+    );
 }
 
-export default Showcase
+export default Showcase;

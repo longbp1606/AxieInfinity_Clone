@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from '../../../assets/backgroud/backgroud-4.jpg';
+import Background from '../../../assets/backgroud/background-4.jpg';
 import Note from '../../../assets/showcase/note.png';
 import Table from '../../../assets/table/table_6.png';
 import Button from '../../../assets/button/button_2.png';

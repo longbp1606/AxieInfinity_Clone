@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {
-    ShowcaseWrapper, GameInfo, NotesContainer, Note1, Note2, Note3, 
-    TelevisionContainer, TelevisionFrame, ThumbnailImage, WatchTrailerButton, 
-    LogoContainer, BodyContainer, ButtonContainer, PlayButton, TitledSection, 
-    Header, StyleDescription, PlayNowButton
+    ShowcaseWrapper, GameInfo, NotesContainer, Note1, Note2, Note3, Note4,
+    TelevisionContainer, TelevisionFrame, ThumbnailImage, WatchTrailerButton, LogoContainer, BodyContainer, ButtonContainer,
+    PlayButton, TitledSection, Header, StyleDescription, PlayNowButton
 } from './Showcase.styled';
 
 import Modal from '../../../component/Modal';
@@ -13,6 +12,7 @@ import thumbnail from '../../../assets/showcase/thumbnail.jpg';
 import note1 from '../../../assets/showcase/note-1.png';
 import note2 from '../../../assets/showcase/note-2.png';
 import note3 from '../../../assets/showcase/note-3.png';
+import note4 from '../../../assets/showcase/note-4.png';
 import background4 from '../../../assets/backgroud/background-4.jpg';
 import button from '../../../assets/button/button.png';
 import button2 from '../../../assets/button/button_2.png';
@@ -50,12 +50,14 @@ const Showcase = () => {
                     </StyleDescription>
                     <div>
                         <ButtonContainer>
+                            
                             <PlayNowButton onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
                                 Play now
                             </PlayNowButton>
                             <WatchTrailerButton onClick={handleWatchTrailer}>
                                 Watch trailer
                             </WatchTrailerButton>
+                         
                         </ButtonContainer>
                     </div>
                 </BodyContainer>
@@ -65,6 +67,7 @@ const Showcase = () => {
                 <Note1 src={note1} alt="Note 1" />
                 <Note2 src={note2} alt="Note 2" />
                 <Note3 src={note3} alt="Note 3" />
+                <Note4 src={note4} alt="Note 4" />
             </NotesContainer>
 
             <Modal isOpen={isVideoModalOpen} onClose={closeVideoModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />

@@ -102,12 +102,10 @@ export const PageListCarousel = styled(Carousel)`
 
     .slick-prev {
         background-image: url(${LeftArrow});
-        left: 2%;
     }
 
     .slick-next {
         background-image: url(${RightArrow});
-        right: 2%;
     }
 `;
 

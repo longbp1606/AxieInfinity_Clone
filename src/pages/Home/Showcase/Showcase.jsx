@@ -110,13 +110,6 @@ const Showcase = () => {
                     </Styled.ShowcaseContainer>
                 </Styled.ShowcaseWrapper>
 
-                {/* Notes section */}
-                <NotesContainer>
-                    <NoteImage src={note1} alt="Note 1" />
-                    {/* <NoteImage src={note2} alt="Note 2" />
-                    <NoteImage src={note3} alt="Note 3" /> */}
-                </NotesContainer>
-
                 {/* Modal for the video */}
                 <Modal
                     isOpen={isVideoModalOpen}

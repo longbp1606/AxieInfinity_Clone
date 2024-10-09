@@ -6,6 +6,7 @@ import Competitive from "./Competitive/Competitive";
 import EmbraceInfinity from "./EmbraceInfinity/EmbraceInfinity";
 import { useDocumentTitle } from "../../hooks";
 import LastestNews from "./LastestNews";
+import Introduction2 from "./Introduction2/Introduction2";
 import { WoodDividerLight } from "./Home.styled";
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
   return (
     <>
       <Introduction />
+      <Introduction2/>
+      {/* <Showcase /> */}
         
       <WoodDividerLight />
       <Showcase />

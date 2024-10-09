@@ -186,7 +186,6 @@ const Showcase = () => {
                 {/* End Latest News Section */}
 
             </Styled.ShowcaseWoodenBackground>
-            <Styled.ShowcaseMarketDivider></Styled.ShowcaseMarketDivider>
         </div>
     );
 };

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import background4 from '../../../assets/backgroud/background-4.jpg';
 import button from '../../../assets/button/button.png';
 import button2 from '../../../assets/button/button_2.png';
-import WoodenBackground from '../../../assets/backgroud/backgroud-4.jpg';
+import WoodenBackground from '../../../assets/backgroud/background-4.jpg';
 import News1BG from '../../../assets/table/table_2.png';
 import News2BG from '../../../assets/table/table_3.png';
 import News3BG from '../../../assets/table/table_4.png';

@@ -23,17 +23,11 @@ import LastestNews from "../LastestNews";
 const Showcase = () => {
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
     const [isTrailerModalOpen, setIsTrailerModalOpen] = useState(false);
-  
-    const handlePlayVideo = () => {
-        setIsVideoModalOpen(true); // Open the video modal
-    };
 
     const handlePlayVideo = () => setIsVideoModalOpen(true);
     const handleWatchTrailer = () => setIsTrailerModalOpen(true);
     const closeVideoModal = () => setIsVideoModalOpen(false);
     const closeTrailerModal = () => setIsTrailerModalOpen(false);
-
-
 
     // Latest News Function 
     const [ref1, inView1] = useInView({ threshold: 0.1 });
@@ -45,50 +39,50 @@ const Showcase = () => {
             <Styled.ShowcaseWoodenBackground>
 
                 <ShowcaseWrapper>
-            <TelevisionContainer>
-                <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
-                <PlayButton onClick={handlePlayVideo}>
-                    <img src={playButton} alt="Play Button" />
-                </PlayButton>
-                <TelevisionFrame src={television} alt="Television Frame" />
-            </TelevisionContainer>
+                    <TelevisionContainer>
+                        <ThumbnailImage src={thumbnail} alt="Game Thumbnail" />
+                        <PlayButton onClick={handlePlayVideo}>
+                            <img src={playButton} alt="Play Button" />
+                        </PlayButton>
+                        <TelevisionFrame src={television} alt="Television Frame" />
+                    </TelevisionContainer>
 
-            <GameInfo>
-                <LogoContainer>
-                    <img src={axielogo} alt="Axie Infinity Logo" style={{ width: '230px' }} />
-                </LogoContainer>
-                <BodyContainer>
-                    <TitledSection>
-                        <Header>More Than A Game</Header>
-                    </TitledSection>
-                    <StyleDescription>
-                        Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
-                    </StyleDescription>
-                    <div>
-                        <ButtonContainer>
-                            
-                            <PlayNowButton onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
-                                Play now
-                            </PlayNowButton>
-                            <WatchTrailerButton onClick={handleWatchTrailer}>
-                                Watch trailer
-                            </WatchTrailerButton>
-                         
-                        </ButtonContainer>
-                    </div>
-                </BodyContainer>
-            </GameInfo>
+                    <GameInfo>
+                        <LogoContainer>
+                            <img src={axielogo} alt="Axie Infinity Logo" style={{ width: '230px' }} />
+                        </LogoContainer>
+                        <BodyContainer>
+                            <TitledSection>
+                                <Header>More Than A Game</Header>
+                            </TitledSection>
+                            <StyleDescription>
+                                Battle monsters called Chimera or test your skills against other players in The Arena. Climb the leaderboard and become a living legend!
+                            </StyleDescription>
+                            <div>
+                                <ButtonContainer>
 
-            <NotesContainer>
-                <Note1 src={note1} alt="Note 1" />
-                <Note2 src={note2} alt="Note 2" />
-                <Note3 src={note3} alt="Note 3" />
-                <Note4 src={note4} alt="Note 4" />
-            </NotesContainer>
+                                    <PlayNowButton onClick={() => window.location.href = 'https://welcome.skymavis.com/download/'}>
+                                        Play now
+                                    </PlayNowButton>
+                                    <WatchTrailerButton onClick={handleWatchTrailer}>
+                                        Watch trailer
+                                    </WatchTrailerButton>
 
-            <Modal isOpen={isVideoModalOpen} onClose={closeVideoModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
-            <Modal isOpen={isTrailerModalOpen} onClose={closeTrailerModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
-        </ShowcaseWrapper>
+                                </ButtonContainer>
+                            </div>
+                        </BodyContainer>
+                    </GameInfo>
+
+                    <NotesContainer>
+                        <Note1 src={note1} alt="Note 1" />
+                        <Note2 src={note2} alt="Note 2" />
+                        <Note3 src={note3} alt="Note 3" />
+                        <Note4 src={note4} alt="Note 4" />
+                    </NotesContainer>
+
+                    <Modal isOpen={isVideoModalOpen} onClose={closeVideoModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
+                    <Modal isOpen={isTrailerModalOpen} onClose={closeTrailerModal} videoSrc="https://www.youtube.com/embed/X2z_YIeettE" />
+                </ShowcaseWrapper>
 
 
 

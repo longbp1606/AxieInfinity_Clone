@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import config from '../../config';
 import { PiBookOpenText } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
+import { imagePages } from './Chapters/Chapter1.data';
 
 const { Title, Text } = Typography;
 
@@ -26,9 +27,9 @@ const LoreDetails = () => {
     const [heightPage, setHeightPage] = useState(0);
     const imageRefs = useRef([]);
 
-    const imagePages = Array(21)
-        .fill()
-        .map((_, index) => `/src/assets/lore/chapter-1/page-${index + 1}.jpg`);
+    // const imagePages = Array(21)
+    //     .fill()
+    //     .map((_, index) => `/src/assets/lore/chapter-1/page-${index + 1}.jpg`);
 
     useEffect(() => {
         const handleScroll = () => {

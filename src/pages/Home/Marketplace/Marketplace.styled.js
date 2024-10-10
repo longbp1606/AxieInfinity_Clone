@@ -5,6 +5,7 @@ import BoardMobile from '../../../assets/templates/home/board-mobile.png';
 import LeftArrow from '../../../assets/play-collect-own/icons/left-arrow.png';
 import RightArrow from '../../../assets/play-collect-own/icons/right-arrow.png';
 import Background6 from '../../../assets/backgroud/background-6.jpg';
+import Board from '../../../assets/table/MarketTable_1.png';
 
 export const StyledBackgroud6 = styled.div`
   background-image: url(${Background6}); 
@@ -40,7 +41,7 @@ export const StyledMaketTable = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-image: url('./src/assets/table/MarketTable_1.png');
+  background-image: url(${Board});
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;

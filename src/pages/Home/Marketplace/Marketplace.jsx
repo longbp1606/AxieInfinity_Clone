@@ -9,6 +9,9 @@ import GemURL from '../../../assets/play-collect-own/icons/gem.png';
 import { theme } from "../../../themes";
 import { useInView } from "react-intersection-observer";
 import { WoodDividerDark } from "../Home.styled";
+import PlayImage from '../../../assets/play-collect-own/play.jpg';
+import CollectImage from '../../../assets/play-collect-own/collect.jpg';
+import OwnImage from '../../../assets/play-collect-own/own.jpg';
 
 const { Title, Text } = Typography;
 
@@ -31,11 +34,7 @@ const Marketplace = () => {
     carouselRef.current.goTo(slideIndex);
   }
 
-  const images = [
-    '../../../src/assets/play-collect-own/play.jpg',
-    '../../../src/assets/play-collect-own/collect.jpg',
-    '../../../src/assets/play-collect-own/own.jpg',
-  ];
+  const images = [ PlayImage, CollectImage, OwnImage ];
 
   const onChange = (currentSlide) => {
     setCurrentSlide(currentSlide);

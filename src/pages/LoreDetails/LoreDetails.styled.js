@@ -2,6 +2,8 @@ import styled from "styled-components";
 import ChapterBackground from '../../assets/lore/chapter-background.jpg';
 import { Button, Carousel, Flex } from "antd";
 import { theme } from "../../themes";
+import LeftArrow from '../../assets/icon/arrow-left.png';
+import RightArrow from '../../assets/icon/arrow-right.png';
 
 export const StoryWrapper = styled.div`
     background-image: url(${ChapterBackground});
@@ -75,6 +77,35 @@ export const MobilePageListTitle = styled(Flex)`
 export const PageListCarousel = styled(Carousel)`
     & .slick-slide {
         display: flex
+    }
+
+    .slick-prev,
+    .slick-next {
+        width: 40px;
+        height: 66px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        opacity: 0.5;
+
+        &::after {
+            width: 0px;
+            height: 0px;
+            border: none;
+        }
+
+        ${({theme}) => theme.breakpoints.down('lg')} {
+            width: 20px;
+            height: 33px;
+        }
+    }
+
+    .slick-prev {
+        background-image: url(${LeftArrow});
+    }
+
+    .slick-next {
+        background-image: url(${RightArrow});
     }
 `;
 

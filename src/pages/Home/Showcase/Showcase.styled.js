@@ -6,8 +6,10 @@ import News3BG from '../../../assets/table/table_4.png';
 import ShowcaseMarketWoodDivider from '../../../assets/showcase/wood-divider-dark.png';
 import { Button, Flex } from "antd";
 import { theme } from "../../../themes";
-import ButtonDark from '../../../assets/button/dark-188.png';
-import ButtonLight from '../../../assets/button/light-188.png';
+import ButtonDark188 from '../../../assets/button/dark-188.png';
+import ButtonLight188 from '../../../assets/button/light-188.png';
+import ButtonDark154 from '../../../assets/button/dark-154.png';
+import ButtonLight154 from '../../../assets/button/light-154.png';
 
 
 export const ShowcaseWrapper = styled.div`
@@ -28,6 +30,12 @@ export const ShowcaseGrid = styled.div`
   grid-template-columns: 840fr 440fr;
   gap: 16px;
   padding-top: 72px;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 80px;
+  }
 `;
 
 export const TelevisionWrapper = styled(Flex)`
@@ -104,6 +112,11 @@ export const PlayButton = styled.button`
 export const GameInfo = styled(Flex)`
   gap: 24px;
   padding-top: 12%;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    align-items: center;\
+    padding-top: 0px;
+  }
 `;
 
 export const GameLogoContainer = styled(Flex)`
@@ -125,6 +138,24 @@ export const GameIntroduction = styled(Flex)`
     color: ${theme.colors.textLore};
     font-size: 2rem;
     font-weight: 600;
+  }
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    max-width: 500px;
+    margin: 0px auto;
+    
+    & h2.ant-typography {
+      text-align: center;
+    }
+
+    & span.ant-typography {
+      text-align: center;
+    }
+  }
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    max-width: 300px;
+    margin: 0px auto;
   }
 `;
 
@@ -149,16 +180,32 @@ export const ButtonTemplate = css`
   transition: transform 0.2s;
   background: transparent;
   border: none;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    font-size: 2.5rem;
+  }
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    width: 154px;
+    height: 48px;
+  }
 `;
 
 export const PlayNowButton = styled(Button)`
   ${ButtonTemplate}
-  background-image: url(${ButtonDark});
+  background-image: url(${ButtonDark188});
+  ${({theme}) => theme.breakpoints.down('md')} {
+    background-image: url(${ButtonDark154});
+  }
 `;
 
 export const WatchTrailerButton = styled(Button)`
   ${ButtonTemplate}
-  background-image: url(${ButtonLight});
+  background-image: url(${ButtonLight188});
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    background-image: url(${ButtonLight154});
+  }
 `;
 
 export const Divider = styled.img`
@@ -185,6 +232,11 @@ export const NoteImage = styled.img`
   left: 0px;
   transform: translateY(-20%);
   max-width: 146px;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    width: 20%;
+    left: 5%;
+  }
 `;
 
 export const NoteImage2 = styled.img`
@@ -193,6 +245,11 @@ export const NoteImage2 = styled.img`
   right: 0px;
   transform: translateY(-20%);
   max-width: 110px;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    width: 15%;
+    right: 5%;
+  }
 `;
 
 export const NoteImage3 = styled.img`
@@ -201,6 +258,15 @@ export const NoteImage3 = styled.img`
   bottom: 0px;
   right: 0px;
   max-width: 192px;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    left: -15%;
+  }
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    width: 25%;
+    left: -20%;
+  }
 `;
 
 export const NoteImage4 = styled.img`
@@ -209,6 +275,24 @@ export const NoteImage4 = styled.img`
   bottom: 0px;
   right: 0px;
   max-width: 129px;
+
+  ${({theme}) => theme.breakpoints.down('xl')} {
+    width: 10%;
+    top: 40%;
+    right: 20%;
+  }
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    width: 20%;
+    top: 55%;
+    right: 10%;
+  }
+
+  ${({theme}) => theme.breakpoints.down('md')} {
+    width: 20%;
+    top: 63%;
+    right: 10%;
+  }
 `;
 
 export const Description = styled.p`

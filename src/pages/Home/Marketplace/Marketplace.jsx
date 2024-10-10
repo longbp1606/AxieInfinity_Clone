@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, createRef } from "react";
 import * as Styled from './Marketplace.styled';
 import { AnalysticData, CharactersData, FlagContentData } from "./Marketplace.data";
 import { Link } from "react-router-dom";
@@ -17,7 +17,15 @@ const Marketplace = () => {
   const [currentAxie, setCurrentAxie] = useState('');
   const [currentSlide, setCurrentSlide] = useState(0);
   const carouselRef = useRef(null);
-  const [iconRef, iconInView] = useInView({ threshold: 0.1 });
+  const [iconRef, setIconInView] = useState([]);
+
+  useEffect(() => {
+    setIconInView((prevRefs) =>
+      Array(AnalysticData.length)
+        .fill()
+        .map((_, i) => prevRefs[i] || createRef())
+    );
+  }, [AnalysticData.length])
 
   const goToSlide = (slideIndex) => {
     carouselRef.current.goTo(slideIndex);
@@ -210,23 +218,27 @@ const Marketplace = () => {
               </Styled.DescriptionContainer>
 
               <Styled.AnalysticContainer>
-                {AnalysticData.map((data) => (
-                  <Styled.AnalysticElement
-                    key={data.key}
-                    vertical
-                    align="center"
-                    ref={iconRef}
-                    className={`animate__animated ${iconInView ? `animate__bounceIn` : ""}`}
-                    style={{
-                      animationDuration: "0.4s",
-                      opacity: iconInView ? "1" : "0",
-                    }}
-                  >
-                    <Image src={data.icon} alt={data.key} preview={false} />
-                    <Title level={5}>{data.data}</Title>
-                    <Text>{data.label}</Text>
-                  </Styled.AnalysticElement>
-                ))}
+                {AnalysticData.map((data) => {
+                  const { ref, inView } = useInView({threshold: 0});
+                  
+                  return (
+                    <Styled.AnalysticElement
+                      key={data.key}
+                      vertical
+                      align="center"
+                      ref={ref}
+                      className={`animate__animated ${inView ? `animate__bounceIn` : ""}`}
+                      style={{
+                        animationDuration: "1s",
+                        opacity: inView ? "1" : "0",
+                      }}
+                    >
+                      <Image src={data.icon} alt={data.key} preview={false} />
+                      <Title level={5}>{data.data}</Title>
+                      <Text>{data.label}</Text>
+                    </Styled.AnalysticElement>
+                  )
+                })}
               </Styled.AnalysticContainer>
             </Styled.FlagBodyContainer>
 

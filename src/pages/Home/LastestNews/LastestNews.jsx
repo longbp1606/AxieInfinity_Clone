@@ -6,8 +6,8 @@ import Note from "../../../assets/node/note-5.png";
 import Figure from "../../../assets/figure/Market_1.png";
 
 const LastestNews = () => {
-  const [leftRef, leftInView] = useInView({ threshold: 0.1 });
-  const [rightRef, rightInView] = useInView({ threshold: 0.1 });
+  const [leftRef, leftInView] = useInView({ threshold: 0 });
+  const [rightRef, rightInView] = useInView({ threshold: 0 });
 
   return (
     <Styled.ShowCaseWrapper>
@@ -15,7 +15,7 @@ const LastestNews = () => {
         <Styled.QuestionContainer>
           <div
             ref={leftRef}
-            className={`animate__animated ${
+            className={`animatedWrapper animate__animated ${
               leftInView ? "animate__fadeInLeft" : ""
             }`}
             style={{
@@ -49,7 +49,7 @@ const LastestNews = () => {
           </div>
           <div
             ref={rightRef}
-            className={`animate__animated ${
+            className={`animatedWrapper animate__animated ${
               rightInView ? "animate__fadeInRight" : ""
             }`}
             style={{

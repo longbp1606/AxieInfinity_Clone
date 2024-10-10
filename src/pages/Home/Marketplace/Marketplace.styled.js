@@ -4,9 +4,10 @@ import { theme } from "../../../themes";
 import BoardMobile from '../../../assets/templates/home/board-mobile.png';
 import LeftArrow from '../../../assets/play-collect-own/icons/left-arrow.png';
 import RightArrow from '../../../assets/play-collect-own/icons/right-arrow.png';
+import Background6 from '../../../assets/backgroud/background-6.jpg';
 
 export const StyledBackgroud6 = styled.div`
-  background-image: url('./src/assets/backgroud/background-6.jpg'); 
+  background-image: url(${Background6}); 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

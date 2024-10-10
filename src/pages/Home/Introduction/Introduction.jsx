@@ -5,21 +5,23 @@ const StyledBackgroud1 = styled.div`
   background-image: url('./src/assets/backgroud/background-5.jpg');
   background-size: cover;
   width: 100%;
-  background-position: center;
+  
   height: 180vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  transform: translateY(${(props) => props.scrollY * -0.5}px);
+  
 `;
 
 const StyledBackgroud2 = styled.div`
   background-image: url('./src/assets/backgroud/background-1.png');
+  
   background-size: cover;
   width: 110%;
   height: 180vh;
   margin: 0%;
+  
 `;
 
 const StyledBackground3 = styled.div`
@@ -97,16 +99,13 @@ const Introduction = () => {
         }
       });
     };
-
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
     <>
-      <StyledBackgroud1 scrollY={scrollY}>
+      <StyledBackgroud1 >
         <StyledBackgroud2>
           <StyledBackground3>
             <StyledButtonStart onClick={handleStartClick}>

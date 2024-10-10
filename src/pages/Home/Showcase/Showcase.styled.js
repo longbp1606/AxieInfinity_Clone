@@ -1,66 +1,46 @@
-import styled from "styled-components";
-import background4 from '../../../assets/backgroud/background-4.jpg';
-import button from '../../../assets/button/button.png';
-import button2 from '../../../assets/button/button_2.png';
+import styled, { css } from "styled-components";
 import WoodenBackground from '../../../assets/backgroud/background-4.jpg';
 import News1BG from '../../../assets/table/table_2.png';
 import News2BG from '../../../assets/table/table_3.png';
 import News3BG from '../../../assets/table/table_4.png';
 import ShowcaseMarketWoodDivider from '../../../assets/showcase/wood-divider-dark.png';
+import { Button, Flex } from "antd";
+import { theme } from "../../../themes";
+import ButtonDark from '../../../assets/button/dark-188.png';
+import ButtonLight from '../../../assets/button/light-188.png';
+
 
 export const ShowcaseWrapper = styled.div`
-  background-image: url(${background4});
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #f8f8f8;
-  background-size: cover;
-  background-position: center;
-  padding: 20px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0px auto;
+`;
+
+export const ShowcaseContainer = styled(Flex)`
+  flex-direction: column;
+  position: relative;
+`;
+
+export const ShowcaseGrid = styled.div`
   display: grid;
   grid-template-columns: 840fr 440fr;
   gap: 16px;
   padding-top: 72px;
 `;
 
-export const LogoContainer = styled.div`
-    display: flex;
-   
-   
-    margin-bottom: 10px; /* Adjust this value to move it higher */
-    margin-top: -150px;
-`;
-
-export const ButtonContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 20px; 
-    margin-top: 36px; 
-`;
-
-export const BodyContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: flex-start;
-    position: relative;
-    align-self: flex-start;
-    max-width: 440px;
-    margin: 0px auto;
+export const TelevisionWrapper = styled(Flex)`
+  max-width: 846px;
+  width: 100%;
+  margin: 0px auto;
 `;
 
 export const TelevisionContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    max-width: 830px; 
-    width: 100%;
-    margin: 0px auto; 
-    position: relative;
-    height: auto; 
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+  position: relative;
+  width: 100%; 
 `;
+
 
 export const TelevisionFrame = styled.img`
     position: relative;
@@ -69,15 +49,24 @@ export const TelevisionFrame = styled.img`
     z-index: 2;
 `;
 
-export const ThumbnailImage = styled.img`
-    position: absolute;
-    top: 5%; 
-    left: 9%;
-    width: 83%; 
-    height: 70%; 
-    object-fit: cover; 
-    z-index: 1;
+export const ThumbnailContainer = styled.div`
+  z-index: 2;
+  border-radius: 40px;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
 `;
+
+export const ScreenContainer = styled(Flex)`
+  position: absolute;
+  top: 5.5%;
+  left: 8.5%;
+  width: 83%;
+`;
+
+export const ThumbnailImage = styled.img``;
 
 export const VideoContainer = styled.div`
     position: absolute;
@@ -94,34 +83,49 @@ export const VideoContainer = styled.div`
 `;
 
 export const PlayButton = styled.button`
-    position: absolute;
-    top: 30%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    padding: 5px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    z-index: 3; 
-    font-size: 16px; 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 50%;
+  padding: 5px; /* Reduce padding */
+  width: 14.2%; /* Set a fixed width */
+  cursor: pointer;
+  z-index: 3; /* Ensure the play button is above the television and thumbnail */
+  background: transparent;
+  filter: drop-shadow(rgba(0, 0, 0, 0.5) 0px 8px 20px);
+
+  & img {
+    width: 100%;
+  }
 `;
 
-export const GameInfo = styled.div`
-    width: 110%;
-    padding: 20px;
-    text-align: center;
-    display: flex; 
-    flex-direction: column; 
-    gap: 0px; 
-    padding-top: 12%; 
+export const GameInfo = styled(Flex)`
+  gap: 24px;
+  padding-top: 12%;
 `;
 
-export const GameTitle = styled.h1`
-    font-size: 2.5em;
-    margin-bottom: 20px;
+export const GameLogoContainer = styled(Flex)`
+  & .ant-image {
+    width: 160px;
+  }
+`;
+
+export const GameIntroduction = styled(Flex)`
+  & h2.ant-typography {
+    font-family: ${theme.fonts.rowdies};
+    color: ${theme.colors.textLore};
+    text-transform: uppercase;
+    font-size: 4.5rem;
+    font-weight: 600;
+  }
+
+  & span.ant-typography {
+    color: ${theme.colors.textLore};
+    font-size: 2rem;
+    font-weight: 600;
+  }
 `;
 
 export const GameDescription = styled.p`
@@ -129,23 +133,32 @@ export const GameDescription = styled.p`
     color: #333;
 `;
 
-export const Button = styled.button`
-    background-image: url(${(props) => props.bgImage});  
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-    width: 150px;  
-    height: 50px;
+export const ButtonContainer = styled(Flex)`
+  gap: 20px;
+`;
 
-    &:hover {
-        background-size: 110%;  
-        background-position: center;
-    }
+export const ButtonTemplate = css`
+  width: 188px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  font-family: ${theme.fonts.rowdies};
+  font-size: 2.25rem;
+  color: ${theme.colors.textForWoodBackground};
+  transition: transform 0.2s;
+  background: transparent;
+  border: none;
+`;
+
+export const PlayNowButton = styled(Button)`
+  ${ButtonTemplate}
+  background-image: url(${ButtonDark});
+`;
+
+export const WatchTrailerButton = styled(Button)`
+  ${ButtonTemplate}
+  background-image: url(${ButtonLight});
 `;
 
 export const Divider = styled.img`
@@ -161,71 +174,41 @@ export const NotesContainer = styled.div`
     margin-top: 20px;
 `;
 
+export const NoteImageTemplate = css`
+  position: absolute;
+  z-index: 10;
+`;
+
 export const NoteImage = styled.img`
-    overflow-clip-margin: content-box;
-    overflow: clip;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    margin: 0;
-    padding: 0;
-    vertical-align: initial;
+  ${NoteImageTemplate}
+  top: 0px;
+  left: 0px;
+  transform: translateY(-20%);
+  max-width: 146px;
 `;
 
-export const Note1 = styled(NoteImage)`
-    position: absolute;
-    top: -650px;
-    left: 0px;
-    transform: translateY(-20%);
-    z-index: 8;
-    max-width: 146px;
+export const NoteImage2 = styled.img`
+  ${NoteImageTemplate}
+  top: 0px;
+  right: 0px;
+  transform: translateY(-20%);
+  max-width: 110px;
 `;
 
-export const Note2 = styled(NoteImage)`
-    position: absolute;
-    bottom: 730px;
-    left: 1200px;
-    transform: translateY(100%);
-    right: 0px;
-    z-index: 8;
-    max-width: 129px;
+export const NoteImage3 = styled.img`
+  ${NoteImageTemplate}
+  transform: translate(86%, 32%);
+  bottom: 0px;
+  right: 0px;
+  max-width: 192px;
 `;
 
-export const Note3 = styled(NoteImage)`
-    position: absolute;
-    bottom: 50px; 
-    transform: translateY(32%) translateX(86%);
-    right: 0px;
-    z-index: 8;
-    max-width: 192px;
-`;
-
-export const Note4 = styled(NoteImage)`
-    position: absolute;
-    bottom: 80px;
-    transform: translateY(32%) translateX(86%);
-    right: -350px;
-    z-index: 8;
-    max-width: 192px;
-`;
-
-export const TitledSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px 0;
-`;
-
-export const FlexSection = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-`;
-
-export const Header = styled.h2`
-  width: 100px;
-  margin: 10px;
+export const NoteImage4 = styled.img`
+  ${NoteImageTemplate}
+  transform: translateY(-10%);
+  bottom: 0px;
+  right: 0px;
+  max-width: 129px;
 `;
 
 export const Description = styled.p`
@@ -253,84 +236,6 @@ export const StyleDescription = styled.p`
     color: rgb(240, 220, 192);
     font-weight: 400;
     line-height: 24px;
-`;
-
-export const PlayNowButton = styled.button`
-    display: inline-flex;
-    position: relative;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
-    outline: 0px;
-    border: 0px;
-    margin: 0px;
-    cursor: pointer;
-    vertical-align: middle;
-    appearance: none;
-    text-decoration: none;
-    font-weight: 500;
-    line-height: 1.75;
-    min-width: 64px;
-    padding: 6px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    background-image: url(${button2});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    width: 188px;
-    height: 60px;
-    font-family: Rowdies, serif;
-    font-size: 2.25rem;
-    text-transform: none;
-    color: rgb(223, 163, 99);
-    transition: transform 0.2s;
-
-    &:hover {
-        transform: scale(1.05);
-    }
-`;
-
-export const WatchTrailerButton = styled.button`
-    display: inline-flex;
-    position: relative;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    background-color: transparent;
-    outline: 0px;
-    border: 0px;
-    margin: 0px;
-    cursor: pointer;
-    vertical-align: middle;
-    appearance: none;
-    text-decoration: none;
-    font-weight: 500;
-    line-height: 1.75;
-    min-width: 64px;
-    padding: 6px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    background-image: url(${button});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    width: 188px;
-    height: 60px;
-    font-family: Rowdies, serif;
-    font-size: 2.25rem;
-    text-transform: none;
-    color: rgb(223, 163, 99);
-    transition: transform 0.2s;
-
-    &:hover {
-        transform: scale(1.05);
-    }
 `;
 
 // Latest News Section

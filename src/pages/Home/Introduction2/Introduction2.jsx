@@ -4,15 +4,14 @@ import styled from "styled-components";
 const StyledBackgroud5 = styled.div`
   background-color: rgb(58, 30, 16);
   width: 100%;
-  margin-top: -190px;
+  margin-top: -250px;
   height: 120vh;
-  transform: translateY(${(props) => props.scrollY * -0.5}px);
-  overflow: hidden;
+ overflow: hidden;
 `;
 
 const StyledCharacterContainer = styled.div`
   position: absolute; /* Đặt vị trí tuyệt đối để dễ di chuyển */
-  top: 17%; /* Điều chỉnh vị trí theo chiều dọc */
+  top: 170%; /* Điều chỉnh vị trí theo chiều dọc */
   left: 40%; /* Canh giữa theo chiều ngang */
   transform: translateX(-50%); /* Canh chỉnh trung tâm */
   display: flex;
@@ -83,21 +82,13 @@ const StyledCard = styled.div`
   text-align: center;
   margin-top:600px;
 `;
-const StyledNav = styled.div`
-    background: none;
-  border: none;
-  text-align: center;
-  margin-top:10px;
-  color: rgb(223, 163, 99);
-`;
 
 const Introduction2 = () => {
-    const [scrollY, setScrollY] = useState(0);
+    
     const [visibleStates, setVisibleStates] = useState([false, false, false, false]);
     const elementRefs = useRef([]);
     useEffect(() => {
       const handleScroll = () => {
-        setScrollY(window.scrollY);
   
         elementRefs.current.forEach((el, index) => {
           if (el && el.getBoundingClientRect().top < window.innerHeight) {
@@ -107,16 +98,13 @@ const Introduction2 = () => {
           }
         });
       };
-  
-      window.addEventListener("scroll", handleScroll);
       return () => {
-        window.removeEventListener("scroll", handleScroll);
       };
     }, []);
   
     return (
                 <>
-                    <StyledBackgroud5 scrollY={scrollY}>
+                    <StyledBackgroud5>
                         <StyledCharacterContainer >
                             <StyledCharacter>
                                 <img src="./src/assets/figure/buba.png" alt="Character 1" className="character"  style={{ top: '60%' }}/>
@@ -140,9 +128,6 @@ const Introduction2 = () => {
                             <StyledCard >
                         <img src="./src/assets/card/card.jpg"/>
                     </StyledCard>
-                    <StyledNav >
-                        <img src="./src/assets/nav/nav-intro.png" />
-                    </StyledNav>
                     </StyledBackgroud5>
 
                 </>

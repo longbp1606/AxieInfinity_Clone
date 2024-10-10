@@ -13,6 +13,11 @@ export const ShowCaseWrapper = styled.div`
     // background-position: center center;
     // padding-bottom: 80px;
     // background-image: url(${Background});
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 `;
 
 export const ShowCaseContainer = styled.div`
@@ -27,7 +32,18 @@ export const QuestionContainer = styled.div`
     grid-template-columns: 625fr 655fr;
     align-items: center;
     position: relative;
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        & .animatedWrapper {
+            width: 100%;
+        }
+    }
 `;
+
 export const ContentLeftWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -45,6 +61,10 @@ export const ContentRightWrapper = styled.div`
     align-items: center;
     position: relative;
     max-width: 655px;
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        margin: 0px auto;
+    }
 `;
 export const BackgroundLeft = styled.div`
     display: flex;
@@ -126,6 +146,33 @@ export const InnerContentWrapper = styled.div`
       font-size: 16px;
       color: rgb(58, 30, 16);
       font-weight: 500;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('xl')} {
+        & h2 {
+            font-size: 5rem;
+        }
+    }
+    ${({ theme }) => theme.breakpoints.down('md')} {
+        & h2 {
+            font-size: 4rem;
+        }
+
+        p {
+            font-size: 2rem
+        }
+    }
+
+    ${({ theme }) => theme.breakpoints.down('md')} {
+        p {
+            font-size: 1.75rem
+        }
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+        p {
+            font-size: 1.6rem;
+        }
     }
 `;
 

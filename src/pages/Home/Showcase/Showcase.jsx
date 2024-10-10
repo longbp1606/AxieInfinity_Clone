@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
 import {
     GameInfo,
-    GameDescription,
     PlayButton,
-    NotesContainer,
-    NoteImage,
     TelevisionContainer,
     TelevisionFrame,
     ThumbnailImage,
-    VideoContainer
 } from './Showcase.styled';
 import Modal from '../../../component/Modal';
 import playButton from '../../../assets/showcase/play-button.png';

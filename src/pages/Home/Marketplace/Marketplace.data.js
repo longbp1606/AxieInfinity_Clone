@@ -11,9 +11,9 @@ import Market10 from '../../../assets/figure/Market_10.png';
 import Market11 from '../../../assets/figure/Market_11.png';
 import Market12 from '../../../assets/figure/Market_12.png';
 
-import PlayImage from '../../../assets/play-collect-own/play.jpg';
-import CollectImage from '../../../assets/play-collect-own/collect.jpg';
-import OwnImage from '../../../assets/play-collect-own/own.jpg';
+import PlayImage from './../../../assets/play-collect-own/play.jpg';
+import CollectImage from './../../../assets/play-collect-own/collect.jpg';
+import OwnImage from './../../../assets/play-collect-own/own.jpg';
 
 import EggIcon from '../../../assets/play-collect-own/icons/egg.png';
 import IdolIcon from '../../../assets/play-collect-own/icons/idol.png';

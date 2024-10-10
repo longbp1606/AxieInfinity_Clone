@@ -28,7 +28,7 @@ const LoreDetails = () => {
 
     const imagePages = Array(21)
         .fill()
-        .map((_, index) => `./../../src/assets/lore/chapter-1/page-${index + 1}.jpg`);
+        .map((_, index) => `./../../assets/lore/chapter-1/page-${index + 1}.jpg`);
 
     useEffect(() => {
         const handleScroll = () => {

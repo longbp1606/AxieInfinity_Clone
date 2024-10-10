@@ -6,13 +6,12 @@ const StyledBackgroud5 = styled.div`
   width: 100%;
   margin-top: -190px;
   height: 120vh;
-  transform: translateY(${(props) => props.scrollY * -0.5}px);
-  overflow: hidden;
+ overflow: hidden;
 `;
 
 const StyledCharacterContainer = styled.div`
   position: absolute; /* Đặt vị trí tuyệt đối để dễ di chuyển */
-  top: 17%; /* Điều chỉnh vị trí theo chiều dọc */
+  top: 170%; /* Điều chỉnh vị trí theo chiều dọc */
   left: 40%; /* Canh giữa theo chiều ngang */
   transform: translateX(-50%); /* Canh chỉnh trung tâm */
   display: flex;

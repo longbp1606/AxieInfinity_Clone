@@ -32,9 +32,9 @@ const Marketplace = () => {
   }
 
   const images = [
-    './src/assets/play-collect-own/play.jpg',
-    './src/assets/play-collect-own/collect.jpg',
-    './src/assets/play-collect-own/own.jpg',
+    '../../../src/assets/play-collect-own/play.jpg',
+    '../../../src/assets/play-collect-own/collect.jpg',
+    '../../../src/assets/play-collect-own/own.jpg',
   ];
 
   const onChange = (currentSlide) => {

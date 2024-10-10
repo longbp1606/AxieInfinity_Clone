@@ -6,6 +6,7 @@ import LeftArrow from '../../../assets/play-collect-own/icons/left-arrow.png';
 import RightArrow from '../../../assets/play-collect-own/icons/right-arrow.png';
 import Background6 from '../../../assets/backgroud/background-6.jpg';
 import Board from '../../../assets/table/MarketTable_1.png';
+import ButtonBG from '../../../assets/button/button_2.png';
 
 export const StyledBackgroud6 = styled.div`
   background-image: url(${Background6}); 
@@ -78,7 +79,7 @@ export const StyledMaketTable = styled.div`
 `;
 
 export const ButtonVisit = styled.button`
-  background-image: url('./src/assets/button/button_2.png');
+  background-image: url(${ButtonBG});
   color: rgb(223, 163, 99);
   border: none;
   border-radius: 15px;
@@ -497,7 +498,7 @@ export const StyledImageIcons = styled.button`
     margin-top: 10px;
     font-size: 24px;
   }
-  .h{
+  .h1 {
     font-family: "Roboto Slab", serif;
   }
 `;
